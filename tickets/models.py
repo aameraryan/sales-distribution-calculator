@@ -4,7 +4,7 @@ import string
 
 
 def ticket_id_generator():
-    random_id = "TK" + ''.join(random.choice(string.ascii_uppercase) for i in range(8))
+    random_id = "TK-" + ''.join(random.choice(string.ascii_uppercase + string.digits) for i in range(6))
     if not Ticket.objects.filter(ticket_id=random_id).exists():
         return random_id
     return ticket_id_generator()

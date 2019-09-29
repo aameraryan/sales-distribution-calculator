@@ -13,7 +13,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     ACCOUNT_TYPE_CHOICES = (("NU", "Normal User"), ("SU", "Staff User"), ("AU", "Admin User"))
 
     email = models.EmailField(unique=True)
-    phone = models.CharField(max_length=20, null=True)
+    phone = models.CharField(max_length=20, null=True, blank=True)
     first_name = models.CharField(max_length=32)
     last_name = models.CharField(max_length=32)
     date_joined = models.DateTimeField(auto_now_add=True)

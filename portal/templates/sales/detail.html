@@ -1,0 +1,55 @@
+{% extends "portal/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Sale Details {{ sale.sale_id }}{% endblock %}
+
+{% block content %}
+    <br><br><br><br>
+    <div class="col-lg-6" style="margin: auto">
+        <div class="card clearfix">
+            <div class="card-header bg-primary clearfix">
+                <div class="page_heading float-left">
+                <h3 class="white-text font-weight-bold m-2">Sale Details : {{ sale.sale_id }}</h3>
+                </div>
+                <div class="create_sale_btn float-right">
+                    <a href="{% url "sales:add" %}"><button class="btn btn-info m-0">Raise Ticket</button></a>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="detail_table">
+                    <table class="table detail_table table-hover table-striped">
+                        <tr>
+                            <th>Sale ID</th>
+                            <td>{{ sale.sale_id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Status</th>
+                            <td>{{ sale.get_status_display }}</td>
+                        </tr>
+                        <tr>
+                            <th>Product</th>
+                            <td>{{ sale.product.get_display_text }} - {{ sale.product.product_id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Sale Price</th>
+                            <td>{{ sale.product.price }}</td>
+                        </tr>
+                        <tr>
+                            <th>Commission Amount</th>
+                            <td>{{ sale.commission_amount }} ( {{ sale.product.commission_margin }}% )</td>
+                        </tr>
+                        <tr>
+                            <th>Sale Date</th>
+                            <td>{{ sale.sale_date }}</td>
+                        </tr>
+                        <tr>
+                            <th>Description</th>
+                            <td>{{ sale.description }}</td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

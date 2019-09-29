@@ -1,0 +1,52 @@
+{% extends "portal/base.html" %}
+{% load crispy_forms_tags %}
+{% load products_tags %}
+{% block title %}Product Details {{ product.product_id }}{% endblock %}
+
+{% block content %}
+    <br><br><br><br>
+    <div class="col-lg-6" style="margin: auto">
+        <div class="card clearfix">
+            <div class="card-header bg-primary clearfix">
+                <div class="page_heading float-left">
+                <h3 class="white-text font-weight-bold m-2">Product Details : {{ product.product_id }}</h3>
+                </div>
+                <div class="create_sale_btn float-right">
+                    <a href="{% url "sales:add" %}"><button class="btn btn-info m-0">Create Sale</button></a>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="detail_table">
+                    <table class="table detail_table table-hover table-striped">
+                        <tr>
+                            <th>Product ID</th>
+                            <td>{{ product.product_id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Name</th>
+                            <td>{{ product.name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Price</th>
+                            <td>{{ product.price }}</td>
+                        </tr>
+                        <tr>
+                            <th>Commission Margin</th>
+                            <td>{{ product.commission_margin }} %</td>
+                        </tr>
+                        <tr>
+                            <th>Description</th>
+                            <td>{{ product.description }}</td>
+                        </tr>
+                        <tr>
+                            <th>My Sales</th>
+                            <td>{% get_user_product_sales_count user product %}</td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
