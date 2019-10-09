@@ -15,13 +15,13 @@ class SaleListView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         qs = super().get_queryset()
-        return qs.filter(user=self.request.user)
+        return qs.filter(agent=self.request.user)
 
 
 class SaleAddView(LoginRequiredMixin, CreateView):
 
     model = Sale
-    fields = ("product", "sale_date", "description")
+    fields = ("product_name", "sale_date")
     template_name = "sales/add.html"
     success_url = reverse_lazy("sales:list")
 
@@ -41,6 +41,6 @@ class SaleDetailView(LoginRequiredMixin, DetailView):
 
     def get_object(self, queryset=None):
         sale = super().get_object()
-        if sale.user == self.request.user:
+        if sale.agent == self.request.user:
             return sale
         raise Http404("Sale not found!")

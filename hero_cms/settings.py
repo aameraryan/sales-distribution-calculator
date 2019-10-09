@@ -20,10 +20,11 @@ INSTALLED_APPS = [
 
     'accounts',
     'portal',
-    'products',
     'sales',
     'tickets',
+    'calcons',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

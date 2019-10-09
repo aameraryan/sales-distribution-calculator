@@ -30,4 +30,4 @@ class Ticket(models.Model):
     executive_description = models.TextField(blank=True)
 
     def __str__(self):
-        return "{} {} ({})".format(self.sale.user.get_full_name, self.sale.sale_id, self.get_query_type_display())
+        return "{} {} ({})".format(self.sale.agent.get_full_name, self.sale.sale_id, self.get_query_type_display())

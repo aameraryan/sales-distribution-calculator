@@ -1,6 +1,6 @@
 ---------------------------------------------
-1- login function
-2- user create function to admin (can make temporary)
+1- login function 29/09
+2- user create function to admin (can make temporary) 29/09
 3- user views for sales, products and tickets
 4- admin views for above same models
                     28/09/2019
