@@ -11,19 +11,26 @@ class Duration(models.Model):
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
-        return "{}-{} = {}%".format(self.min_value, self.max_value, self.commission_applicable)
+        return "{} = {}%".format(self.get_duration_display_text, self.commission_applicable)
+
+    @property
+    def get_duration_display_text(self):
+        if self.min_value and self.max_value:
+            return "{}-{}".format(self.min_value, self.max_value)
+        elif self.min_value and not self.max_value:
+            return "{}+".format(self.min_value)
 
 
 class Bonus(models.Model):
 
-    contract_volume_from = models.PositiveIntegerField()
-    contract_volume_to = models.PositiveIntegerField(blank=True, null=True)
+    min_contract_volume = models.PositiveIntegerField()
+    max_contract_volume = models.PositiveIntegerField(blank=True, null=True)
     bonus_percent = models.FloatField()
 
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
-        return "{}-{} = {}%".format(self.contract_volume_from, self.contract_volume_to, self.bonus_percent)
+        return "{}-{} = {}%".format(self.min_contract_volume, self.max_contract_volume, self.bonus_percent)
 
     class Meta:
         verbose_name = "Bonus"
@@ -76,3 +83,13 @@ class PaymentTermINTZ(models.Model):
     class Meta:
         verbose_name = "Payment Term Incentivization"
         verbose_name_plural = "Payment Term Incentivizations"
+
+
+class Payout(models.Model):
+
+    duration = models.OneToOneField(Duration, on_delete=models.PROTECT)
+    fp_percent = models.FloatField(verbose_name="First Payout Percent",)
+    lp_percent = models.FloatField(verbose_name="Last Payout Percent",)
+
+    def __str__(self):
+        return "{} | fp:{}, lp:{}".format(self.duration.get_duration_display_text, self.fp_percent, self.lp_percent)
