@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="264acf8c-3a78-463d-abec-0b1db46074ac" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calcons/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/calcons/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hero_cms_old" beforeDir="false" afterPath="$PROJECT_DIR$/hero_cms_old" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hero_cms_old/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/hero_cms_old/.idea/workspace.xml" afterDir="false" />
@@ -142,148 +141,9 @@
       <change beforePath="$PROJECT_DIR$/hero_cms_old/portal/static/scss/mdb.scss" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/hero_cms_old/portal/templates/portal/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/hero_cms_old/portal/templates/portal/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hero_cms_old/work_progress.txt" beforeDir="false" afterPath="$PROJECT_DIR$/hero_cms_old/work_progress.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inputs_from_hero/.~lock.Comm Temp.xlsx#" beforeDir="false" afterPath="$PROJECT_DIR$/inputs_from_hero/.~lock.Comm Temp.xlsx#" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static/css/materialize.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static/css/materialize.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static/js/materialize.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static/js/materialize.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/css/addons/datatables-select.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/css/addons/datatables-select.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/css/addons/datatables.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/css/addons/datatables.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/css/addons/directives.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/css/addons/directives.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/css/addons/flag.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/css/addons/flag.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/css/addons/rating.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/css/addons/rating.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/css/addons/zmd.hierarchical-display.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/css/addons/zmd.hierarchical-display.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/css/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/css/mdb.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/css/mdb.lite.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/css/mdb.lite.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/css/mdb.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/css/modules/animations-extended.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/css/modules/animations-extended.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/css/style.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/font/roboto/Roboto-Bold.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/font/roboto/Roboto-Bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/font/roboto/Roboto-Bold.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/font/roboto/Roboto-Bold.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/font/roboto/Roboto-Light.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/font/roboto/Roboto-Light.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/font/roboto/Roboto-Light.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/font/roboto/Roboto-Light.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/font/roboto/Roboto-Medium.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/font/roboto/Roboto-Medium.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/font/roboto/Roboto-Medium.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/font/roboto/Roboto-Medium.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/font/roboto/Roboto-Regular.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/font/roboto/Roboto-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/font/roboto/Roboto-Regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/font/roboto/Roboto-Regular.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/font/roboto/Roboto-Thin.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/font/roboto/Roboto-Thin.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/font/roboto/Roboto-Thin.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/font/roboto/Roboto-Thin.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/img/flags.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/img/lightbox/default-skin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/img/lightbox/default-skin.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/img/lightbox/preloader.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/img/overlays/01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/img/overlays/02.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/img/overlays/03.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/img/overlays/04.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/img/overlays/05.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/img/overlays/06.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/img/overlays/07.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/img/overlays/08.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/img/overlays/09.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/img/sample.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/img/svg/arrow_left.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/img/svg/arrow_right.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/img/svg/flags.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/js/addons/datatables-select.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/js/addons/datatables-select.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/js/addons/datatables.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/js/addons/datatables.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/js/addons/imagesloaded.pkgd.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/js/addons/jquery.zmd.hierarchical-display.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/js/addons/jquery.zmd.hierarchical-display.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/js/addons/masonry.pkgd.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/js/addons/progressBar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/js/addons/progressBar.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/js/addons/rating.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/js/addons/rating.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/js/jquery-3.4.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/js/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/js/mdb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/js/mdb.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/js/modules/bs-custom-file-input.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/js/modules/chart.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/js/modules/enhanced-modals.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/js/modules/forms-free.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/js/modules/jquery.easing.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/js/modules/scrolling-navbar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/js/modules/treeview.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/js/modules/velocity.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/js/modules/velocity.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/js/modules/waves.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/js/modules/wow.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/js/popper.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/_custom-styles.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/_custom-variables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/addons/_datatables-select.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/addons/_datatables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/addons/_directives.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/addons/_flags.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/addons/_hierarchical-display.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/addons/_rating.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/core/_colors.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/core/_global.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/core/_helpers.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/core/_masks.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/core/_mixins.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/core/_typography.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/core/_variables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/core/_waves.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/core/bootstrap/_functions.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/core/bootstrap/_rfs.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/core/bootstrap/_variables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/free/_animations-basic.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/free/_badges.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/free/_buttons.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/free/_cards.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/free/_carousels.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/free/_depreciated.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/free/_dropdowns.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/free/_footers.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/free/_forms.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/free/_input-group.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/free/_list-group.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/free/_loader.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/free/_modals.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/free/_msc.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/free/_navbars.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/free/_pagination.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/free/_steppers.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/free/_switch.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/free/_tables.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/free/_treeview.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/free/modules/animations-extended/_module.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/free/modules/animations-extended/animations-extended.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/mdb.lite.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static_mdb/scss/mdb.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/sales/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/sales/add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/sales/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/sales/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/sales/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/sales/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sales/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sales/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/static/img/flags.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/static/img/sample.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/accounts/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/accounts/login.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -379,7 +239,7 @@
       <workItem from="1570384345877" duration="1479000" />
       <workItem from="1570440652294" duration="18000" />
       <workItem from="1570642424525" duration="14620000" />
-      <workItem from="1570696550541" duration="4049000" />
+      <workItem from="1570696550541" duration="4551000" />
     </task>
     <servers />
   </component>
