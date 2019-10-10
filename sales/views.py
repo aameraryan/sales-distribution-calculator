@@ -23,7 +23,7 @@ class SaleAddView(LoginRequiredMixin, CreateView):
     model = Sale
     template_name = "sales/add.html"
     success_url = reverse_lazy("sales:list")
-    fields = ("product_name", "sale_date", "setup_fee", "contract_volume", "monthly_budget", "duration",
+    fields = ("campaign_name", "sale_date", "setup_fee", "contract_volume", "monthly_budget", "duration",
               "management_fee", "car_dealer_amount", "payment_terms", "agent_comment")
 
     def form_valid(self, form):

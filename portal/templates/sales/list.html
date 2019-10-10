@@ -7,6 +7,14 @@
 {% block custom_links %}
     <link href="{% static "css/addons/datatables.min.css" %}" rel="stylesheet">
     <link href="{% static "css/addons/datatables-select.min.css" %}" rel="stylesheet">
+
+    <style>
+        .page-link{
+            background-color: #ff867a!important;
+            color: whitesmoke!important;
+        }
+    </style>
+
 {% endblock %}
 
 {% block content %}
@@ -18,7 +26,7 @@
                     <h3 class="font-weight-bold white-text mt-2">My Sales</h3>
                 </div>
                 <div class="create_sale_btn float-right">
-                    <a href="{% url "sales:add" %}"><button class="btn young-passion-gradient text-white font-weight-bold m-0">Create Sale</button></a>
+                    <a href="{% url "sales:add" %}"><button class="btn young-passion-gradient text-white font-weight-bold m-0">Create Sale Record</button></a>
                 </div>
             </div>
         <div class="card-body">
@@ -39,7 +47,7 @@
                 <tr>
                     <td></td>
                     <td><a href="{{ sale.get_absolute_url }}">{{ sale.sale_id }}</a></td>
-                    <td>{{ sale.product_name }}</td>
+                    <td>{{ sale.campaign_name }}</td>
                     <td>{{ sale.contract_volume }}</td>
                     <td>{{ sale.total_payout }}</td>
                     <td>{{ sale.sale_date }}</td>

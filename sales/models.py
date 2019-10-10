@@ -24,7 +24,7 @@ class Sale(models.Model):
     agent = models.ForeignKey(User, on_delete=models.CASCADE)
 
     #   AGENT INPUTS
-    product_name = models.CharField(max_length=128)
+    campaign_name = models.CharField(max_length=128)
     sale_date = models.DateField()
     setup_fee = models.PositiveIntegerField()
     contract_volume = models.PositiveIntegerField()
@@ -34,7 +34,7 @@ class Sale(models.Model):
     management_fee = models.PositiveIntegerField()
     car_dealer_amount = models.PositiveIntegerField()
     payment_terms = models.PositiveIntegerField()
-    agent_comment = models.TextField(blank=True)
+    agent_comment = models.TextField(verbose_name="Comment", blank=True)
 
     #   FINANCE INPUTS
     first_commission_paid = models.BooleanField(default=False)
@@ -62,7 +62,7 @@ class Sale(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return "{} by {} - {}".format(self.product_name, self.agent.get_full_name, self.total_payout)
+        return "{} by {} - {}".format(self.campaign_name, self.agent.get_full_name, self.total_payout)
 
     @property
     def get_absolute_url(self):
