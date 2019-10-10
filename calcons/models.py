@@ -11,7 +11,7 @@ class Duration(models.Model):
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
-        return "{} = {}%".format(self.get_duration_display_text, self.commission_applicable)
+        return "{}".format(self.get_duration_display_text)
 
     @property
     def get_duration_display_text(self):

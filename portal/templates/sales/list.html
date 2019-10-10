@@ -13,12 +13,12 @@
     <br><br><br><br><br>
     <div class="col-lg-8" style="margin: auto;padding: 20px">
         <div class="card">
-            <div class="card-header bg-primary clearfix">
+            <div class="card-header warm-flame-gradient clearfix">
                 <div class="page_heading float-left">
                     <h3 class="font-weight-bold white-text mt-2">My Sales</h3>
                 </div>
                 <div class="create_sale_btn float-right">
-                    <a href="{% url "sales:add" %}"><button class="btn btn-info m-0">Create Sale</button></a>
+                    <a href="{% url "sales:add" %}"><button class="btn young-passion-gradient text-white font-weight-bold m-0">Create Sale</button></a>
                 </div>
             </div>
         <div class="card-body">
@@ -28,7 +28,7 @@
               <th></th>
               <th class="th-sm">Sale ID</th>
               <th class="th-sm">Product</th>
-              <th class="th-sm">Price</th>
+              <th class="th-sm">Contract Volume</th>
               <th class="th-sm">Commission</th>
               <th class="th-sm">Sale Date</th>
               <th class="th-sm">Status</th>
@@ -39,11 +39,11 @@
                 <tr>
                     <td></td>
                     <td><a href="{{ sale.get_absolute_url }}">{{ sale.sale_id }}</a></td>
-                    <td>{{ sale.product.get_display_text }}</td>
-                    <td>{{ sale.product.price }}</td>
-                    <td>{{ sale.commission_amount }}</td>
+                    <td>{{ sale.product_name }}</td>
+                    <td>{{ sale.contract_volume }}</td>
+                    <td>{{ sale.total_payout }}</td>
                     <td>{{ sale.sale_date }}</td>
-                    <td>{{ sale.get_status }}</td>
+                    <td>{{ sale.get_status_display }}</td>
                 </tr>
             {% endfor %}
           </tbody>

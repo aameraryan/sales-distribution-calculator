@@ -1,7 +1,10 @@
 {% load static %}
 
-<nav class="mb-1 navbar navbar-expand-lg navbar-dark primary-color lighten-1">
-  <a class="navbar-brand" href="#">Navbar</a>
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark young-passion-gradient lighten-1">
+{#  <a class="navbar-brand font-weight-bold" href="#">HERO CMS</a>#}
+    <a class="navbar-brand font-weight-bold bg text-center m-0 p-0 mr-2" href="{% url "portal:home" %}">
+        <img src="{% static "img/logo.png" %}" height="35px">
+    </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
     aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -15,9 +18,6 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{% url "sales:list" %}">Sales</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url "products:list" %}">Products</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Payments</a>

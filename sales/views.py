@@ -21,13 +21,16 @@ class SaleListView(LoginRequiredMixin, ListView):
 class SaleAddView(LoginRequiredMixin, CreateView):
 
     model = Sale
-    fields = ("product_name", "sale_date")
     template_name = "sales/add.html"
     success_url = reverse_lazy("sales:list")
+    fields = ("product_name", "sale_date", "setup_fee", "contract_volume", "monthly_budget", "duration",
+              "management_fee", "car_dealer_amount", "payment_terms", "agent_comment")
 
     def form_valid(self, form):
-        form.instance.user = self.request.user
-        messages.success(self.request, "Sale Created Successfully")
+        form.instance.agent = self.request.user
+        sale = form.save()
+        self.success_url = sale.get_absolute_url
+        messages.success(self.request, "Sale Created Successfully - {}".format(sale.sale_id))
         return super().form_valid(form)
 
 
