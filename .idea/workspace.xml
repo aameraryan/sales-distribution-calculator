@@ -141,7 +141,6 @@
       <change beforePath="$PROJECT_DIR$/hero_cms_old/portal/templates/portal/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/hero_cms_old/portal/templates/portal/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hero_cms_old/venv/lib/python3.6/site-packages/PIL/ImageCms.py" beforeDir="false" afterPath="$PROJECT_DIR$/hero_cms_old/venv/lib/python3.6/site-packages/PIL/ImageCms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hero_cms_old/work_progress.txt" beforeDir="false" afterPath="$PROJECT_DIR$/hero_cms_old/work_progress.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inputs_from_hero/.~lock.Comm Temp.xlsx#" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -240,6 +239,7 @@
       <workItem from="1570696550541" duration="5592000" />
       <workItem from="1570725714164" duration="2195000" />
       <workItem from="1570787820046" duration="618000" />
+      <workItem from="1570967589356" duration="2260000" />
     </task>
     <servers />
   </component>
