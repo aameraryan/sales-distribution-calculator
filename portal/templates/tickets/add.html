@@ -1,0 +1,51 @@
+{% extends "portal/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Raise Ticket{% endblock %}
+
+{% block content %}
+    <br><br><br><br>
+    <div class="col-lg-6" style="margin: auto">
+        <div class="card clearfix">
+            <div class="card-header warm-flame-gradient">
+                <h3 class="white-text font-weight-bold m-auto">Raise Ticket</h3>
+            </div>
+            <div class="card-body">
+                <form method="post" action="{% url "tickets:add" %}">
+                    {% csrf_token %}
+
+                    <input id="id_sale" name="sale" type="hidden">
+
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            {{ form.query_type|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-lg-6">
+                            {{ form.photo|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form.executive_description|as_crispy_field }}
+                    </div>
+
+                    <button class="btn young-passion-gradient font-weight-bold text-white float-right" type="submit">Create</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+{% block custom_script %}
+    <script>
+        function assignSaleId() {
+            let url = new URL(window.location.href);
+            let sale_id = url.searchParams.get("sid");
+            if (sale_id){
+                $("#id_sale").val(sale_id);
+            }
+        }
+
+        $(function () {
+            assignSaleId();
+        })
+    </script>
+{% endblock %}

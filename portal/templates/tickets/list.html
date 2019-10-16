@@ -1,0 +1,84 @@
+{% extends "portal/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}My Tickets{% endblock %}
+
+{% block custom_links %}
+    <link href="{% static "css/addons/datatables.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/addons/datatables-select.min.css" %}" rel="stylesheet">
+
+    <style>
+        .page-link{
+            background-color: #ff867a!important;
+            color: whitesmoke!important;
+        }
+    </style>
+
+{% endblock %}
+
+{% block content %}
+    <br><br><br><br><br>
+    <div class="col-lg-8" style="margin: auto;padding: 20px">
+        <div class="card">
+            <div class="card-header warm-flame-gradient clearfix">
+                <div class="page_heading float-left">
+                    <h3 class="font-weight-bold white-text mt-2">My Tickets</h3>
+                </div>
+{#                <div class="create_ticket_btn float-right">#}
+{#                    <a href="{% url "tickets:add" %}"><button class="btn young-passion-gradient text-white font-weight-bold m-0">Create Ticket Record</button></a>#}
+{#                </div>#}
+            </div>
+        <div class="card-body">
+            <table id="dt-basic-checkbox" class="table table-striped table-bordered" cellspacing="0" width="100%">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="th-sm">Ticket ID</th>
+              <th class="th-sm">Sale</th>
+              <th class="th-sm">Subject</th>
+              <th class="th-sm">Status</th>
+              <th class="th-sm">Created On</th>
+              <th class="th-sm">Solved On</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for ticket in tickets %}
+                <tr>
+                    <td></td>
+                    <td><a href="{{ ticket.get_absolute_url }}">{{ ticket.ticket_id }}</a></td>
+                    <td>{{ ticket.sale.sale_id }}</td>
+                    <td>{{ ticket.query_type }}</td>
+                    <td>{{ ticket.get_status_display}}</td>
+                    <td>{{ ticket.created_on }}</td>
+                    <td>{{ ticket.solved_on }}</td>
+                </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        </div>
+
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block custom_script %}
+    <script type="text/javascript" src="{% static "js/addons/datatables.min.js" %}"></script>
+    <script src="{% static "js/addons/datatables-select.min.js" %}" rel="stylesheet"></script>
+    <script>
+        $('#dt-basic-checkbox').dataTable({
+
+        columnDefs: [{
+        orderable: false,
+        className: 'select-checkbox',
+        targets: 0
+        }],
+        select: {
+        style: 'os',
+        selector: 'td:first-child'
+        }
+        });
+    </script>
+{% endblock %}

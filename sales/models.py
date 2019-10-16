@@ -68,13 +68,9 @@ class Sale(models.Model):
     def get_absolute_url(self):
         return reverse_lazy("sales:detail", kwargs={"id": self.id})
 
-    # @property
-    # def calculate_commission_applicable(self):
-    #     durations = Duration.objects.filter(min_value__lte=self.duration, is_active=True).order_by("min_value")
-    #     if durations.exists():
-    #         return durations.last().commission_applicable
-    #     else:
-    #         return 0
+    @property
+    def get_raise_ticket_url(self):
+        return str(reverse_lazy("tickets:add")) + "?sid={}".format(self.id)
 
     @property
     def calculate_commission_applicable(self):

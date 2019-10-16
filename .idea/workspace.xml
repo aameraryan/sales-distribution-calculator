@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="264acf8c-3a78-463d-abec-0b1db46074ac" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hero_cms_old" beforeDir="false" afterPath="$PROJECT_DIR$/hero_cms_old" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hero_cms_old/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/hero_cms_old/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hero_cms_old/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/hero_cms_old/db.sqlite3" afterDir="false" />
@@ -141,8 +142,13 @@
       <change beforePath="$PROJECT_DIR$/hero_cms_old/portal/templates/portal/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/hero_cms_old/portal/templates/portal/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hero_cms_old/venv/lib/python3.6/site-packages/PIL/ImageCms.py" beforeDir="false" afterPath="$PROJECT_DIR$/hero_cms_old/venv/lib/python3.6/site-packages/PIL/ImageCms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hero_cms_old/work_progress.txt" beforeDir="false" afterPath="$PROJECT_DIR$/hero_cms_old/work_progress.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/accounts/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/accounts/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portal/templates/portal/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/sales/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/sales/detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sales/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/sales/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tickets/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/tickets/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tickets/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/tickets/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tickets/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tickets/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -242,6 +248,9 @@
       <workItem from="1570725714164" duration="2195000" />
       <workItem from="1570787820046" duration="618000" />
       <workItem from="1570967589356" duration="5625000" />
+      <workItem from="1571051039819" duration="373000" />
+      <workItem from="1571051443118" duration="34000" />
+      <workItem from="1571248568480" duration="4061000" />
     </task>
     <servers />
   </component>

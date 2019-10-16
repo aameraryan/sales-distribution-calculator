@@ -11,7 +11,11 @@
                 <h3 class="white-text font-weight-bold m-2">Sale Details : {{ sale.sale_id }}</h3>
                 </div>
                 <div class="create_sale_btn float-right">
-                    <a href="{% url "sales:add" %}"><button class="btn young-passion-gradient font-weight-bold text-white m-0">Raise Ticket</button></a>
+                    {% if not sale.ticket_set.exists %}
+                        <a href="{{ sale.get_raise_ticket_url }}"><button class="btn young-passion-gradient font-weight-bold text-white m-0">Raise Ticket</button></a>
+                    {% else %}
+                        <a href="{{ sale.ticket_set.first.get_absolute_url }}"><button class="btn young-passion-gradient font-weight-bold text-white m-0">Goto Ticket</button></a>
+                    {% endif %}
                 </div>
             </div>
             <div class="card-body">
@@ -86,7 +90,7 @@
                         </tr>
                         <tr>
                             <th>Setup Fee Payout</th>
-                            <td>{{ sale.bonus_payout }}</td>
+                            <td>{{ sale.setup_fee_payout }}</td>
                             <th>Total Payout</th>
                             <td>{{ sale.total_payout }}</td>
                         </tr>
