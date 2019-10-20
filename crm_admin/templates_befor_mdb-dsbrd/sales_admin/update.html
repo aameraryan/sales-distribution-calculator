@@ -1,0 +1,130 @@
+{% extends "crm_admin/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Update Sale | {{ sale.sale_id }}{% endblock %}
+
+{% block content %}
+    <br><br><br><br>
+    <div class="col-lg-6" style="margin: auto">
+        <div class="card clearfix">
+            <div class="card-header warm-flame-gradient">
+                <h3 class="white-text font-weight-bold m-auto">Update Sale | {{ sale.sale_id }}</h3>
+            </div>
+            <div class="card-body">
+                <div class="card border" style="box-shadow: none">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-lg-9">
+                                <h4 class="m-auto">Sale Details</h4>
+                            </div>
+                            <div class="col-lg-3">
+                                <i class="mt-2 float-right fa-lg fa fa-eye-slash" id="sale_details_toggle"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body" id="sale_details" style="display: none">
+                        <table class="table detail_table table-hover">
+                        <thead class="bg-light">
+                            <th colspan="4">Sale Details</th>
+                        </thead>
+                        <tr>
+                            <th>Sale ID</th>
+                            <td>{{ sale.sale_id }}</td>
+                            <th>Status</th>
+                            <td>{{ sale.get_status_display }}</td>
+                        </tr>
+                        <tr>
+                            <th>Product</th>
+                            <td>{{ sale.campaign_name }}</td>
+                            <th>Sale Date</th>
+                            <td>{{ sale.sale_date }}</td>
+                        </tr>
+                        <thead class="bg-light">
+                            <th colspan="4">Sale Inputs</th>
+                        </thead>
+                        <tr>
+                            <th>Contract Volume</th>
+                            <td>{{ sale.contract_volume }}</td>
+                            <th>Setup Fee</th>
+                            <td>{{ sale.setup_fee }}</td>
+                        </tr>
+                        <tr>
+                            <th>Monthly Budget</th>
+                            <td>{{ sale.monthly_budget }}</td>
+                            <th>Duration</th>
+                            <td>{{ sale.duration }}</td>
+                        </tr>
+                        <tr>
+                            <th>Management Fee</th>
+                            <td>{{ sale.management_fee }}</td>
+                            <th>Car Dealer Amount</th>
+                            <td>{{ sale.car_dealer_amount }}</td>
+                        </tr>
+                        <tr>
+                            <th>Payment Terms</th>
+                            <td>{{ sale.payment_terms }}</td>
+                            <th>Comment</th>
+                            <td>{{ sale.agent_comment|default:"-" }}</td>
+                        </tr>
+                        <thead class="bg-light">
+                            <th colspan="4">Finance Calculations</th>
+                        </thead>
+                        <tr>
+                            <th>Car Dealer Bonus</th>
+                            <td>{{ sale.car_dealer_bonus }}</td>
+                            <th>Bonus Payout</th>
+                            <td>{{ sale.bonus_payout }}</td>
+                        </tr>
+                        <tr>
+                            <th>First Payout</th>
+                            <td>{{ sale.first_payout }}</td>
+                            <td>
+                                {{ sale.last_commission_pay_on|default:"Date Not Assigned"  }}
+{#                                {{ form.first_commission_pay_on|as_crispy_field }}#}
+                            </td>
+                            <td>
+{#                                {{ form.first_commission_paid|as_crispy_field }}#}
+                                <i class="fa {% if sale.first_commission_paid %}fa-check text-success{% else %}fa-times text-danger{% endif %}"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Last Payout</th>
+                            <td>{{ sale.last_payout }}</td>
+                            <td>{{ sale.last_commission_pay_on|default:"Date Not Assigned"  }}</td>
+                            <td>
+{#                                {{ form.last_commission_paid|as_crispy_field }}#}
+                                <i class="fa {% if sale.last_commission_paid %}fa-check text-success{% else %}fa-times text-danger{% endif %}"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Setup Fee Payout</th>
+                            <td>{{ sale.setup_fee_payout }}</td>
+                            <th>Total Payout</th>
+                            <td>{{ sale.total_payout }}</td>
+                        </tr>
+                    </table>
+                    </div>
+                </div>
+                <hr>
+                <div class="container p-3 border">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <div class="clearfix">
+                            <button class="btn young-passion-gradient font-weight-bold text-white float-right" type="submit">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block custom_script %}
+    <script>
+        $("#sale_details_toggle").on("click", function () {
+            $("#sale_details").toggle();
+            $(this).toggleClass("fa-eye fa-eye-slash");
+        })
+    </script>
+{% endblock %}

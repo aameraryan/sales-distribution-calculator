@@ -19,7 +19,7 @@ def sale_id_generator():
 
 class Sale(models.Model):
 
-    SALE_STATUS_CHOICES = (("CR", "Created"), ("AP", "Approved"), ("CP", "Completed"), ("DC", "Declined"))
+    SALE_STATUS_CHOICES = (("CR", "Created"), ("PR", "Process"), ("AP", "Approved"), ("CP", "Completed"), ("DC", "Declined"))
 
     agent = models.ForeignKey(User, on_delete=models.CASCADE)
 
@@ -67,6 +67,14 @@ class Sale(models.Model):
     @property
     def get_absolute_url(self):
         return reverse_lazy("sales:detail", kwargs={"id": self.id})
+
+    @property
+    def get_admin_absolute_url(self):
+        return reverse_lazy("crm_admin:sales_admin_detail", kwargs={"id": self.id})
+
+    @property
+    def get_admin_update_url(self):
+        return reverse_lazy("crm_admin:sales_admin_update", kwargs={"id": self.id})
 
     @property
     def get_raise_ticket_url(self):

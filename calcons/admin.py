@@ -1,8 +1,8 @@
 from django.contrib import admin
 from .models import Bonus, CarDealerBonus, Duration, Multiplier, PaymentTermINTZ, Payout
 
-admin.site.site_title = "Hero-CMS Administration"
-admin.site.site_header = "Hero-CMS Administration"
+admin.site.site_title = "Hero Leads Administration"
+admin.site.site_header = "Hero Leads Administration"
 
 
 admin.site.register(Bonus)

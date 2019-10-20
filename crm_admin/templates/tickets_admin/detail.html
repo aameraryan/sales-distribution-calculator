@@ -1,0 +1,50 @@
+{% extends "crm_admin/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Ticket Details {{ ticket.ticket_id }}{% endblock %}
+
+{% block content %}
+    <br><br><br><br>
+    <div class="col-lg-6" style="margin: auto">
+        <div class="card clearfix">
+            <div class="card-header warm-flame-gradient clearfix">
+                <div class="page_heading float-left">
+                <h3 class="white-text font-weight-bold m-2">Ticket Details : {{ ticket.ticket_id }}</h3>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="detail_table">
+                    <table class="table detail_table table-hover">
+                        <thead class="bg-light">
+                            <th colspan="4">Ticket Details</th>
+                        </thead>
+                        <tr>
+                            <th>Ticket ID</th>
+                            <td>{{ ticket.ticket_id }}</td>
+                            <th>Status</th>
+                            <td>{{ ticket.get_status_display }}</td>
+                        </tr>
+                        <tr>
+                            <th>Sale</th>
+                            <td colspan="3">
+                                {{ ticket.sale.sale_id }}
+                                <a href="{{ ticket.sale.get_admin_absolute_url }}"><i class="fa fa-eye"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Created On</th>
+                            <td>{{ ticket.created_on }}</td>
+                            <th>Solved On</th>
+                            <td>{{ ticket.solved_on|default:"-" }}</td>
+                        </tr>
+                        <tr>
+                            <th>Comment</th>
+                            <td colspan="3">{{ ticket.executive_description }}</td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

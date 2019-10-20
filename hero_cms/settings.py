@@ -18,13 +18,13 @@ INSTALLED_APPS = [
 
     'crispy_forms',
 
+    'crm_admin',
     'accounts',
     'portal',
     'sales',
     'tickets',
     'calcons',
 ]
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
