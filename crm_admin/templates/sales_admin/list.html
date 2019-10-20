@@ -18,10 +18,9 @@
 {% endblock %}
 
 {% block content %}
-    <br><br><br><br><br>
-    <div class="col-lg-8" style="margin: auto;padding: 20px">
+    <div >
         <div class="card">
-            <div class="card-header warm-flame-gradient clearfix">
+            <div class="card-header young-passion-gradient clearfix">
                 <div class="page_heading float-left">
                     <h3 class="font-weight-bold white-text mt-2">All Sales</h3>
                 </div>
@@ -30,37 +29,43 @@
 {#                </div>#}
             </div>
         <div class="card-body">
-            <table id="dt-basic-checkbox" class="table table-striped table-bordered" cellspacing="0" width="100%">
-          <thead>
-            <tr>
-              <th></th>
-              <th class="th-sm">Sale ID</th>
-              <th class="th-sm">Product</th>
-              <th class="th-sm">Contract Volume</th>
-              <th class="th-sm">Commission</th>
-              <th class="th-sm">Sale Date</th>
-              <th class="th-sm">Status</th>
-              <th class="th-sm">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for sale in sales %}
+
+            <div class="table-responsive-lg">
+                <table id="dt-basic-checkbox" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <thead>
                 <tr>
-                    <td></td>
-                    <td><a href="{{ sale.get_admin_absolute_url }}">{{ sale.sale_id }}</a></td>
-                    <td>{{ sale.campaign_name }}</td>
-                    <td>{{ sale.contract_volume }}</td>
-                    <td>{{ sale.total_payout }}</td>
-                    <td>{{ sale.sale_date }}</td>
-                    <td>{{ sale.get_status_display }}</td>
-                    <td>
-                        <a href="{{ sale.get_admin_absolute_url }}"><i class="fa float-left fa-eye"></i></a>
-                        <a href="{{ sale.get_admin_update_url }}"><i class="fa fa-pen float-right"></i></a>
-                    </td>
+                  <th></th>
+                  <th class="th-sm">Sale ID</th>
+                  <th class="th-sm">Agent</th>
+                  <th class="th-sm">Product</th>
+                  <th class="th-sm">Contract Volume</th>
+                  <th class="th-sm">Commission</th>
+                  <th class="th-sm">Sale Date</th>
+                  <th class="th-sm">Status</th>
+                  <th class="th-sm">Actions</th>
                 </tr>
-            {% endfor %}
-          </tbody>
-        </table>
+                  </thead>
+                    <tbody>
+                    {% for sale in sales %}
+                        <tr>
+                            <td></td>
+                            <td><a href="{{ sale.get_admin_absolute_url }}">{{ sale.sale_id }}</a></td>
+                            <td>{{ sale.agent.get_short_name }}</td>
+                            <td>{{ sale.campaign_name }}</td>
+                            <td>{{ sale.contract_volume }}</td>
+                            <td>{{ sale.total_payout }}</td>
+                            <td>{{ sale.sale_date }}</td>
+                            <td>{{ sale.get_status_display }}</td>
+                            <td>
+                                <a href="{{ sale.get_admin_absolute_url }}"><i class="fa float-left fa-eye"></i></a>
+                                <a href="{{ sale.get_admin_update_url }}"><i class="fa fa-pen float-right"></i></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+            </div>
+
         </div>
 
         </div>

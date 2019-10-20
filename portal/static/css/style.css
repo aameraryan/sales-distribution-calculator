@@ -30,3 +30,25 @@
 @media (max-width: 1199.98px) {
   .sidebar-fixed {
     display: none; } }
+
+.list-group-item.active{
+   background-color: #b12a5b!important;
+   border-color: #b12a5b!important;
+   font-weight: bold;
+}
+
+.amt-bg-default{
+   background-color: #b12a5b;
+   color: white;
+}
+.amt-default-color{
+   color: #b12a5b!important;
+}
+
+.amt-bg-secondary{
+   background-color: #ff8177;
+   color: white;
+}
+.amt-secondary-color{
+   color: #ff8177!important;
+}

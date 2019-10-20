@@ -8,7 +8,7 @@
 
         <!-- Brand -->
         <a class="navbar-brand waves-effect" href="{% url "crm_admin:dashboard" %}">
-          <strong class="text-warning">Administration</strong>
+          <strong class="text-warning font-weight-bold">Administration</strong>
         </a>
 
         <!-- Collapse -->
@@ -23,43 +23,44 @@
           <!-- Left -->
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link waves-effect" href="#">Home
+              <a class="nav-link waves-effect" href="#">Dashboard
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">About
-                MDB</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/jquery/getting-started/download/"
-                target="_blank">Free
-                download</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link waves-effect" href="https://mdbootstrap.com/education/bootstrap/" target="_blank">Free
-                tutorials</a>
-            </li>
+
           </ul>
 
           <!-- Right -->
           <ul class="navbar-nav nav-flex-icons">
-            <li class="nav-item">
-              <a href="https://www.facebook.com/mdbootstrap" class="nav-link waves-effect" target="_blank">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="https://twitter.com/MDBootstrap" class="nav-link waves-effect" target="_blank">
-                <i class="fab fa-twitter"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="https://github.com/mdbootstrap/bootstrap-material-design" class="nav-link border border-light rounded waves-effect"
-                target="_blank">
-                <i class="fab fa-github mr-2"></i>MDB GitHub
-              </a>
-            </li>
+{#            <li class="nav-item">#}
+{#              <a href="https://www.facebook.com/mdbootstrap" class="nav-link waves-effect" target="_blank">#}
+{#                <i class="fab fa-facebook-f"></i>#}
+{#              </a>#}
+{#            </li>#}
+{#            <li class="nav-item">#}
+{#              <a href="https://twitter.com/MDBootstrap" class="nav-link waves-effect" target="_blank">#}
+{#                <i class="fab fa-twitter"></i>#}
+{#              </a>#}
+{#            </li>#}
+{#            <li class="nav-item">#}
+{#              <a href="https://github.com/mdbootstrap/bootstrap-material-design" class="nav-link border border-light rounded waves-effect"#}
+{#                target="_blank">#}
+{#                <i class="fab fa-github mr-2"></i>MDB GitHub#}
+{#              </a>#}
+{#            </li>#}
+              <li class="nav-item avatar dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <img src="{{ user.get_avatar }}" class="rounded-circle z-depth-0"
+            alt="avatar" id="avatar-image" height="30px">
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+          aria-labelledby="navbarDropdownMenuLink-55">
+          <a class="dropdown-item" href="#">Profile</a>
+          <a class="dropdown-item" href="#">Change Password</a>
+          <a class="dropdown-item" href="{% url "accounts:logout" %}">Logout</a>
+        </div>
+      </li>
           </ul>
 
         </div>
@@ -76,17 +77,18 @@
       </a>
 
       <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item active waves-effect">
+        <a href="{% url "crm_admin:dashboard" %}" class="list-group-item active waves-effect">
           <i class="fas fa-chart-pie mr-3"></i>Dashboard
         </a>
         <a href="#" class="list-group-item list-group-item-action waves-effect">
           <i class="fas fa-user mr-3"></i>Profile</a>
+        <a href="{% url "crm_admin:sales_admin_list" %}" class="list-group-item list-group-item-action waves-effect">
+          <i class="fas fa-table mr-3"></i>Sales</a>
+        <a href="{% url "crm_admin:tickets_admin_list" %}" class="list-group-item list-group-item-action waves-effect">
+          <i class="fas fa-money-bill-alt mr-3"></i>Tickets
+        </a>
         <a href="#" class="list-group-item list-group-item-action waves-effect">
-          <i class="fas fa-table mr-3"></i>Tables</a>
-        <a href="#" class="list-group-item list-group-item-action waves-effect">
-          <i class="fas fa-map mr-3"></i>Maps</a>
-        <a href="#" class="list-group-item list-group-item-action waves-effect">
-          <i class="fas fa-money-bill-alt mr-3"></i>Orders</a>
+          <i class="fas fa-money-bill-alt mr-3"></i>Payments</a>
       </div>
 
     </div>

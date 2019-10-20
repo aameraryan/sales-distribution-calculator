@@ -3,8 +3,7 @@
 {% block title %}Update Sale | {{ sale.sale_id }}{% endblock %}
 
 {% block content %}
-    <br><br><br><br>
-    <div class="col-lg-6" style="margin: auto">
+    <div>
         <div class="card clearfix">
             <div class="card-header warm-flame-gradient">
                 <h3 class="white-text font-weight-bold m-auto">Update Sale | {{ sale.sale_id }}</h3>
@@ -105,7 +104,7 @@
                     </div>
                 </div>
                 <hr>
-                <div class="container p-3 border">
+                <div class="p-3 border">
                     <form method="post">
                         {% csrf_token %}
                         {{ form|crispy }}

@@ -3,15 +3,14 @@
 {% block title %}Sale Details {{ sale.sale_id }}{% endblock %}
 
 {% block content %}
-    <br><br><br><br>
-    <div class="col-lg-6" style="margin: auto">
+    <div>
         <div class="card clearfix">
-            <div class="card-header sunny-morning-gradient clearfix">
+            <div class="card-header young-passion-gradient clearfix">
                 <div class="page_heading float-left">
                 <h3 class="white-text font-weight-bold m-2">Sale Details : {{ sale.sale_id }}</h3>
                 </div>
                 <div class="create_sale_btn float-right">
-                    <a href="{{ sale.get_admin_update_url }}"><button class="btn sunny-morning-gradient font-weight-bold text-white m-0">Edit</button></a>
+                    <a href="{{ sale.get_admin_update_url }}"><button class="btn amt-bg-secondary font-weight-bold text-white m-0">Edit</button></a>
                 </div>
             </div>
             <div class="card-body">

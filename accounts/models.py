@@ -1,5 +1,4 @@
 from __future__ import unicode_literals
-
 from django.db import models
 from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.base_user import AbstractBaseUser
@@ -41,3 +40,10 @@ class User(AbstractBaseUser, PermissionsMixin):
     @property
     def get_display_text(self):
         return self.get_full_name
+
+    @property
+    def get_avatar(self):
+        if self.photo:
+            return self.photo.url
+        else:
+            return "missing"
