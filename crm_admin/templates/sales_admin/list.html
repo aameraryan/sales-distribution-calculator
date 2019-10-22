@@ -39,6 +39,8 @@
                   <th class="th-sm">Agent</th>
                   <th class="th-sm">Product</th>
                   <th class="th-sm">Contract Volume</th>
+                  <th class="th-sm">First Payout</th>
+                  <th class="th-sm">Last Payout</th>
                   <th class="th-sm">Commission</th>
                   <th class="th-sm">Sale Date</th>
                   <th class="th-sm">Status</th>
@@ -53,6 +55,8 @@
                             <td>{{ sale.agent.get_short_name }}</td>
                             <td>{{ sale.campaign_name }}</td>
                             <td>{{ sale.contract_volume }}</td>
+                            <td>{{ sale.first_payout }}</td>
+                            <td>{{ sale.last_payout }}</td>
                             <td>{{ sale.total_payout }}</td>
                             <td>{{ sale.sale_date }}</td>
                             <td>{{ sale.get_status_display }}</td>
@@ -78,17 +82,19 @@
     <script type="text/javascript" src="{% static "js/addons/datatables.min.js" %}"></script>
     <script src="{% static "js/addons/datatables-select.min.js" %}" rel="stylesheet"></script>
     <script>
+
         $('#dt-basic-checkbox').dataTable({
 
         columnDefs: [{
-        orderable: false,
+        orderable: true,
         className: 'select-checkbox',
-        targets: 0
+        targets: 0,
         }],
         select: {
         style: 'os',
         selector: 'td:first-child'
         }
         });
+
     </script>
 {% endblock %}

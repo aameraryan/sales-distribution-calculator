@@ -33,11 +33,13 @@
             <table id="dt-basic-checkbox" class="table table-striped table-bordered" cellspacing="0" width="100%">
           <thead>
             <tr>
-              <th></th>
+              <th style="width: 50px"></th>
               <th class="th-sm">Sale ID</th>
               <th class="th-sm">Product</th>
               <th class="th-sm">Contract Volume</th>
-              <th class="th-sm">Commission</th>
+              <th class="th-sm">First Payout</th>
+              <th class="th-sm">Last Payout</th>
+              <th class="th-sm">Total Commission</th>
               <th class="th-sm">Sale Date</th>
               <th class="th-sm">Status</th>
             </tr>
@@ -49,6 +51,8 @@
                     <td><a href="{{ sale.get_absolute_url }}">{{ sale.sale_id }}</a></td>
                     <td>{{ sale.campaign_name }}</td>
                     <td>{{ sale.contract_volume }}</td>
+                    <td>{{ sale.first_payout }}</td>
+                    <td>{{ sale.last_payout }}</td>
                     <td>{{ sale.total_payout }}</td>
                     <td>{{ sale.sale_date }}</td>
                     <td>{{ sale.get_status_display }}</td>

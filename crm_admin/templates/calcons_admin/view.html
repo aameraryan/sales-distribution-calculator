@@ -1,0 +1,160 @@
+{% extends "crm_admin/base.html" %}
+
+{% block title %}Calculator{% endblock %}
+
+{% block content %}
+    <div class="">
+
+        <div class="card">
+            <div class="card-header">
+                <h3>Calculator Constants</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div style="box-shadow: none" class="border card">
+                            <div class="card-header font-weight-bold text-white bg-warning">
+                                <h5>1 - Bonuses</h5>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <th>No</th>
+                                        <th>Min Value</th>
+                                        <th>Max Value</th>
+                                        <th>Bonus Percent</th>
+                                        <th>Status</th>
+                                    </thead>
+                                    <tbody>
+                                        {% if bonuses %}
+                                            {% for bonus in bonuses %}
+                                                <tr>
+                                                    <td>{{ forloop.counter }}</td>
+                                                    <td>{{ bonus.min_contract_volume }}</td>
+                                                    <td>{{ bonus.max_contract_volume }}</td>
+                                                    <td>{{ bonus.bonus_percent }} %</td>
+                                                    <td>
+                                                        <i class="fa {% if bonus.is_active %} fa-check text-success{% else %}text-danger fa-times{% endif %}"></i>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                        {% else %}
+                                            <span class="font-weight-bold text-muted">No Data Found</span>
+                                        {% endif %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div style="box-shadow: none" class="border card">
+                            <div class="card-header bg-info font-weight-bold text-white">
+                                <h5>2 - Car Dealer Bonuses</h5>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <th>No</th>
+                                        <th>Car Dealer Amount</th>
+                                        <th>Bonus Amount</th>
+                                        <th>Status</th>
+                                    </thead>
+                                    <tbody>
+                                        {% if cd_bonuses %}
+                                            {% for cd_bonus in cd_bonuses %}
+                                                <tr>
+                                                    <td>{{ forloop.counter }}</td>
+                                                    <td>{{ cd_bonus.car_dealer_amount }}</td>
+                                                    <td>{{ cd_bonus.bonus_amount }}</td>
+                                                    <td>
+                                                        <i class="fa {% if cd_bonus.is_active %} fa-check text-success{% else %}text-danger fa-times{% endif %}"></i>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                        {% else %}
+                                            <span class="font-weight-bold text-muted">No Data Found</span>
+                                        {% endif %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div style="box-shadow: none" class="border card">
+                            <div class="card-header bg-success font-weight-bold text-white">
+                                <h5>3 - Durations</h5>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <th>No</th>
+                                        <th>Min Value</th>
+                                        <th>Max Value</th>
+                                        <th>Commission Applicable</th>
+                                        <th>Status</th>
+                                    </thead>
+                                    <tbody>
+                                        {% if durations %}
+                                            {% for duration in durations %}
+                                                <tr>
+                                                    <td>{{ forloop.counter }}</td>
+                                                    <td>{{ duration.min_value }}</td>
+                                                    <td>{{ duration.max_value }}</td>
+                                                    <td>{{ duration.commission_applicable }} %</td>
+                                                    <td>
+                                                        <i class="fa {% if duration.is_active %} fa-check text-success{% else %}text-danger fa-times{% endif %}"></i>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                        {% else %}
+                                            <span class="font-weight-bold text-muted">No Data Found</span>
+                                        {% endif %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div style="box-shadow: none" class="border card">
+                            <div class="card-header font-weight-bold bg-danger text-white">
+                                <h5>4 - Multipliers</h5>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <th>No</th>
+                                        <th>Car Dealer Amount</th>
+                                        <th>Bonus Amount</th>
+                                        <th>Status</th>
+                                    </thead>
+                                    <tbody>
+                                        {% if multipliers %}
+                                            {% for multiplier in multipliers %}
+                                                <tr>
+                                                    <td>{{ forloop.counter }}</td>
+                                                    <td>{{ multiplier.fee_percent }}</td>
+                                                    <td>{{ multiplier.multiplier_applicable }}</td>
+                                                    <td>
+                                                        <i class="fa {% if multiplier.is_active %} fa-check text-success{% else %}text-danger fa-times{% endif %}"></i>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                        {% else %}
+                                            <span class="font-weight-bold text-muted">No Data Found</span>
+                                        {% endif %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+
+
+    </div>
+{% endblock %}
