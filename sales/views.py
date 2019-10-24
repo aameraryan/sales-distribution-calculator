@@ -12,10 +12,19 @@ class SaleListView(LoginRequiredMixin, ListView):
     model = Sale
     context_object_name = "sales"
     template_name = "sales/list.html"
+    ordering = "-id"
 
     def get_queryset(self):
         qs = super().get_queryset()
         return qs.filter(agent=self.request.user)
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data()
+        context['pending_sales'] = context['sales'].filter(status="PA")
+        context['approved_sales'] = context['sales'].filter(status="AP")
+        context['completed_sales'] = context['sales'].filter(status="CP")
+        print(context)
+        return context
 
 
 class SaleAddView(LoginRequiredMixin, CreateView):

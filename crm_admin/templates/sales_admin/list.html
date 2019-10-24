@@ -41,6 +41,8 @@
                   <th class="th-sm">Contract Volume</th>
                   <th class="th-sm">First Payout</th>
                   <th class="th-sm">Last Payout</th>
+                  <th class="th-sm">First Payout Month</th>
+                  <th class="th-sm">Last Payout Month</th>
                   <th class="th-sm">Commission</th>
                   <th class="th-sm">Sale Date</th>
                   <th class="th-sm">Status</th>
@@ -57,6 +59,8 @@
                             <td>{{ sale.contract_volume }}</td>
                             <td>{{ sale.first_payout }}</td>
                             <td>{{ sale.last_payout }}</td>
+                            <td>{{ sale.get_first_payout_month }}</td>
+                            <td>{{ sale.get_last_payout_month }}</td>
                             <td>{{ sale.total_payout }}</td>
                             <td>{{ sale.sale_date }}</td>
                             <td>{{ sale.get_status_display }}</td>

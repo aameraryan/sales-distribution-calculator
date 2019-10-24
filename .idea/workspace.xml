@@ -3,14 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="264acf8c-3a78-463d-abec-0b1db46074ac" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm_admin/templates/crm_admin/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm_admin/templates/crm_admin/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm_admin/templates/crm_admin/breadcrumb.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm_admin/templates/crm_admin/breadcrumb.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm_admin/templates/crm_admin/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm_admin/templates/crm_admin/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm_admin/templates/crm_admin/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm_admin/templates/crm_admin/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crm_admin/templates/sales_admin/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/crm_admin/templates/sales_admin/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crm_admin/urls/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/crm_admin/urls/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hero_cms/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/hero_cms/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hero_cms_old" beforeDir="false" afterPath="$PROJECT_DIR$/hero_cms_old" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hero_cms_old/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/hero_cms_old/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hero_cms_old/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/hero_cms_old/db.sqlite3" afterDir="false" />
@@ -149,9 +143,11 @@
       <change beforePath="$PROJECT_DIR$/hero_cms_old/portal/templates/portal/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/hero_cms_old/portal/templates/portal/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hero_cms_old/venv/lib/python3.6/site-packages/PIL/ImageCms.py" beforeDir="false" afterPath="$PROJECT_DIR$/hero_cms_old/venv/lib/python3.6/site-packages/PIL/ImageCms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hero_cms_old/work_progress.txt" beforeDir="false" afterPath="$PROJECT_DIR$/hero_cms_old/work_progress.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/portal/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal/templates/portal/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/accounts/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/accounts/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/templates/portal/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/portal/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portal/templates/sales/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/portal/templates/sales/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sales/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/sales/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sales/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sales/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -179,19 +175,19 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/crm_admin/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/portal/templates/sales" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/crm_admin/urls" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/portal/templates/sales" />
       <recent name="$PROJECT_DIR$/crm_admin/views" />
       <recent name="$PROJECT_DIR$/crm_admin/urls" />
       <recent name="$PROJECT_DIR$/portal/static/js" />
       <recent name="$PROJECT_DIR$/portal/static/css" />
-      <recent name="$PROJECT_DIR$/crm_admin/templates/crm_admin" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/crm_admin/urls" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -260,7 +256,11 @@
       <workItem from="1571331496717" duration="1035000" />
       <workItem from="1571421670287" duration="1619000" />
       <workItem from="1571557560190" duration="17654000" />
-      <workItem from="1571734737640" duration="3676000" />
+      <workItem from="1571734737640" duration="4704000" />
+      <workItem from="1571799973056" duration="28000" />
+      <workItem from="1571815485135" duration="1271000" />
+      <workItem from="1571890664042" duration="1827000" />
+      <workItem from="1571911417779" duration="8425000" />
     </task>
     <servers />
   </component>

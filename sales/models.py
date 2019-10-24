@@ -17,9 +17,13 @@ def sale_id_generator():
     return sale_id_generator()
 
 
+MONTH_CHOICES = ((1, "January"), (2, "February"), (3, "March"), (4, "April"), (5, "May"), (6, "June"),
+                 (7, "July"), (8, "August"), (9, "September"), (10, "October"), (11, "November"), (12, "December"))
+
+
 class Sale(models.Model):
 
-    SALE_STATUS_CHOICES = (("CR", "Created"), ("PR", "Process"), ("AP", "Approved"), ("CP", "Completed"), ("DC", "Declined"))
+    SALE_STATUS_CHOICES = (("PA", "Pending Approval"), ("AP", "Approved"), ("CP", "Completed"), ("DC", "Declined"))
 
     agent = models.ForeignKey(User, on_delete=models.CASCADE)
 
@@ -130,6 +134,18 @@ class Sale(models.Model):
         return self.calculate_payout * payout.lp_percent/100
 
     @property
+    def get_first_payout_month(self):
+        if self.first_commission_pay_on:
+            return self.first_commission_pay_on.strftime("%B %Y")
+        return "N/A"
+
+    @property
+    def get_last_payout_month(self):
+        if self.last_commission_pay_on:
+            return self.last_commission_pay_on.strftime("%B %Y")
+        return "N/A"
+
+    @property
     def calculate_bonus_payout(self):
         bonuses = Bonus.objects.filter(min_contract_volume__lte=self.contract_volume, is_active=True).order_by("min_contract_volume")
         if bonuses.exists():
@@ -217,3 +233,20 @@ post_save.connect(assign_setup_fee_payout, sender=Sale)
 post_save.connect(assign_payouts, sender=Sale)
 post_save.connect(assign_bonus_payout, sender=Sale)
 post_save.connect(assign_total_payout, sender=Sale)
+
+
+# class Payout(models.Model):
+#
+#     PAYOUT_TYPE_CHOCIES = (("FP", "First Payout"), ("LP", "Last Payout"))
+#     STATUS_CHOICES = (("PN", "Pending"), ("PD", "Paid"))
+#
+#     sale = models.ForeignKey(Sale, on_delete=models.CASCADE)
+#     payout_type = models.CharField(max_length=2, choices=PAYOUT_TYPE_CHOCIES)
+#     status = models.CharField(max_length=2, default="PN", choices=STATUS_CHOICES)
+#     amount = models.PositiveIntegerField()
+#
+#     month = models.PositiveIntegerField(choices=MONTH_CHOICES, validators=[MinValueValidator(limit_value=1), MaxValueValidator(limit_value=12)])
+#     year = models.PositiveIntegerField(validators=[MinValueValidator(limit_value=1990), MaxValueValidator(2050)])
+#
+#     def __str__(self):
+#         return "{} - {} - {} - {} - {}".format(self.sale.agent.get_short_name, self.sale.sale_id, self.get_payout_type_display(), self.amount, self.get_status_display())
