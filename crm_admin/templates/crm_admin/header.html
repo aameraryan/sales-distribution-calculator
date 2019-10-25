@@ -83,6 +83,9 @@
         </a>
         <a href="#" class="list-group-item list-group-item-action waves-effect">
           <i class="fas fa-user mr-3"></i>Profile</a>
+        <a href="{% url "crm_admin:ac_admin_user_list" %}" class="list-group-item list-group-item-action waves-effect">
+          <i class="fas fa-user mr-3"></i>Users</a>
+
         <a href="{% url "crm_admin:sales_admin_list" %}" class="list-group-item list-group-item-action waves-effect">
           <i class="fas fa-table mr-3"></i>Sales <span class="badge badge-danger ml-4">{% get_pending_sale_count %}</span></a>
         <a href="{% url "crm_admin:tickets_admin_list" %}" class="list-group-item list-group-item-action waves-effect">

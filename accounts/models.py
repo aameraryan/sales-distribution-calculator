@@ -9,7 +9,7 @@ from .managers import UserManager
 
 class User(AbstractBaseUser, PermissionsMixin):
 
-    ACCOUNT_TYPE_CHOICES = (("NU", "Normal User"), ("SU", "Staff User"), ("AU", "Admin User"))
+    ACCOUNT_TYPE_CHOICES = (("AG", "Agent"), ("ST", "Staff"), ("AD", "Admin"))
 
     email = models.EmailField(unique=True)
     phone = models.CharField(max_length=20, null=True, blank=True)

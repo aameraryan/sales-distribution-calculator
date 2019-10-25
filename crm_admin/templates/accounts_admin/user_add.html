@@ -1,0 +1,31 @@
+{% extends "crm_admin/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Create New User{% endblock %}
+
+
+{% block content %}
+
+    <div class="col-lg-6 m-auto">
+        <div class="card">
+            <div class="card-header warm-flame-gradient p-4 text-center font-weight-bold text-white">
+                <i class="fa fa-user amt-heading-icon"></i>
+                <hr>
+                <h4 class="amt-heading">Create User</h4>
+            </div>
+            <div class="card-body">
+                <div class="p-4">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <div class="col-lg-6 m-auto">
+                            <button class="btn young-passion-gradient font-weight-bold text-white btn-block" type="submit">Create</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

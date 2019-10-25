@@ -13,7 +13,7 @@ def ticket_id_generator():
 
 class Ticket(models.Model):
 
-    TICKET_STATUS_CHOICES = (("IN", "Initiated"), ("PR", "Processing"), ("SL", "Solved"), ("CN", "Cancelled"), ("EX", "Expired"))
+    TICKET_STATUS_CHOICES = (("PN", "Pending"), ("SL", "Solved"), ("CN", "Cancelled"))
     QUERY_TYPE_CHOICES = (("PR", "Price"), ("PM", "Payment"), ("OT", "Other"))
 
     ticket_id = models.CharField(max_length=32, default=ticket_id_generator)

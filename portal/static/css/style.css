@@ -1,3 +1,24 @@
 .table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
    background-color: #7abaffl;
 }
+
+.amt-heading-icon{
+   font-size: 50px;
+}
+
+
+.amt-bg-default{
+   background-color: #b12a5b;
+   color: white;
+}
+.amt-default-color{
+   color: #b12a5b!important;
+}
+
+.amt-bg-secondary{
+   background-color: #ff8177;
+   color: white;
+}
+.amt-secondary-color{
+   color: #ff8177!important;
+}

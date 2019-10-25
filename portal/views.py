@@ -12,3 +12,8 @@ class HomeView(LoginRequiredMixin, TemplateView):
             return super().get(request, *args, **kwargs)
 
     template_name = "portal/home.html"
+
+
+class TermsConditionsView(LoginRequiredMixin, TemplateView):
+
+    template_name = "portal/terms_conditions.html"
