@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'sales',
     'tickets',
     'calcons',
+    'payouts',
 ]
 
 MIDDLEWARE = [

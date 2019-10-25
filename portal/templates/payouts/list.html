@@ -1,0 +1,95 @@
+{% extends "portal/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}My Payouts{% endblock %}
+
+{% block custom_links %}
+    <link href="{% static "css/addons/datatables.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/addons/datatables-select.min.css" %}" rel="stylesheet">
+
+    <style>
+        .page-link{
+            background-color: #ff867a!important;
+            color: whitesmoke!important;
+        }
+    </style>
+
+{% endblock %}
+
+{% block content %}
+    <div class="col-lg-11" style="margin: auto;padding: 20px">
+        <div class="card">
+            <div class="card-header warm-flame-gradient clearfix">
+                <div class="page_heading float-left">
+                    <h3 class="font-weight-bold white-text mt-2">My Payouts</h3>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="text-center">
+                    <div class="form-inline">
+                        <label for="payouts_filter_btn" class="float-left">Payouts Status : </label>
+                        <select id="payouts_filter_btn" class="custom-select">
+                          <option value="all">All</option>
+                          <option value="pending">Pending</option>
+                          <option value="paid">Paid</option>
+                        </select>
+                    </div>
+                    <hr>
+                </div>
+                <div class="payouts" id="payouts">
+                    <table id="payouts_table" class="table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                      <thead>
+                        <tr>
+                          <th class="th-sm">Sale</th>
+                          <th class="th-sm">Payout Type</th>
+                          <th class="th-sm">Amount</th>
+                          <th class="th-sm">Month</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for payout in payouts %}
+                            <tr class="payout {% if payout.status == "PD" %}paid{% else %}pending{% endif %}" {% if payout.status == "PD" %}style="display: none"{% endif %}>
+                                <td><a href="{{ payout.sale.get_absolute_url }}">{{ payout.sale.sale_id }}</a></td>
+                                <td>{{ payout.get_payout_type_display }}</td>
+                                <td>{{ payout.amount }}</td>
+                                <td>{{ payout.get_month_display }} {{ payout.year }}</td>
+                                <td>
+                                    <i class="fa fa-eye"></i>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block custom_script %}
+    <script type="text/javascript" src="{% static "js/addons/datatables.min.js" %}"></script>
+    <script src="{% static "js/addons/datatables-select.min.js" %}" rel="stylesheet"></script>
+    <script>
+        $("#payouts_filter_btn").on("change", function () {
+            let value = $(this).val();
+            alert(value);
+            if (value === "pending") {
+                $(".pending").show();
+                $(".paid").hide();
+            } else if (value === "paid") {
+                $(".paid").show();
+                $(".pending").hide();
+            }
+           else if (value === "all"){
+                $(".paid").show();
+                $(".pending").show();
+           }
+
+
+        });
+    </script>
+{% endblock %}

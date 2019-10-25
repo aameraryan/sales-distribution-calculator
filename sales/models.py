@@ -8,6 +8,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from calcons.models import Bonus, CarDealerBonus, Duration, Multiplier, Payout, PaymentTermINTZ
 from django.db.models import Q, Sum
 from calcons.calc_constants import MIN_CV_FOR_SETUP_FEE_PAYOUT, FEE_PERCENT_SETUP_FEE_PAYOUT
+from payouts.models import Payout
 
 
 def sale_id_generator():
@@ -15,10 +16,6 @@ def sale_id_generator():
     if not Sale.objects.filter(sale_id=random_id).exists():
         return random_id
     return sale_id_generator()
-
-
-MONTH_CHOICES = ((1, "January"), (2, "February"), (3, "March"), (4, "April"), (5, "May"), (6, "June"),
-                 (7, "July"), (8, "August"), (9, "September"), (10, "October"), (11, "November"), (12, "December"))
 
 
 class Sale(models.Model):
@@ -41,10 +38,6 @@ class Sale(models.Model):
     agent_comment = models.TextField(verbose_name="Comment", blank=True)
 
     #   FINANCE INPUTS
-    first_commission_paid = models.BooleanField(default=False)
-    last_commission_paid = models.BooleanField(default=False)
-    first_commission_pay_on = models.DateField(blank=True, null=True)
-    last_commission_pay_on = models.DateField(blank=True, null=True)
     finance_comment = models.TextField(blank=True)
 
     #   CALCULATION FIELDS
@@ -133,17 +126,18 @@ class Sale(models.Model):
         payout = self.duration.payout
         return self.calculate_payout * payout.lp_percent/100
 
-    @property
-    def get_first_payout_month(self):
-        if self.first_commission_pay_on:
-            return self.first_commission_pay_on.strftime("%B %Y")
-        return "N/A"
-
-    @property
-    def get_last_payout_month(self):
-        if self.last_commission_pay_on:
-            return self.last_commission_pay_on.strftime("%B %Y")
-        return "N/A"
+    # @property
+    # def get_first_payout_month(self):
+    #     try:
+    #         self.payout_set.get_or_create(payout_type="FP").
+    #         return self.first_commission_pay_on.strftime("%B %Y")
+    #     return "N/A"
+    #
+    # @property
+    # def get_last_payout_month(self):
+    #     if self.last_commission_pay_on:
+    #         return self.last_commission_pay_on.strftime("%B %Y")
+    #     return "N/A"
 
     @property
     def calculate_bonus_payout(self):
@@ -225,6 +219,19 @@ def assign_total_payout(sender, instance, *args, **kwargs):
             instance.save()
 
 
+def create_payouts(sender, instance, *args, **kwargs):
+    if instance.first_payout:
+        fp = Payout.objects.get_or_create(sale=instance, payout_type="FP")[0]
+        if fp.amount != instance.first_payout:
+            fp.amount = instance.first_payout
+            fp.save()
+    if instance.last_payout:
+        lp = Payout.objects.get_or_create(sale=instance, payout_type="LP")[0]
+        if lp.amount != instance.last_payout:
+            lp.amount = instance.last_payout
+            lp.save()
+
+
 post_save.connect(assign_commission_applicable, sender=Sale)
 post_save.connect(assign_pt_intz, sender=Sale)
 post_save.connect(assign_car_dealer_bonus, sender=Sale)
@@ -233,20 +240,4 @@ post_save.connect(assign_setup_fee_payout, sender=Sale)
 post_save.connect(assign_payouts, sender=Sale)
 post_save.connect(assign_bonus_payout, sender=Sale)
 post_save.connect(assign_total_payout, sender=Sale)
-
-
-# class Payout(models.Model):
-#
-#     PAYOUT_TYPE_CHOCIES = (("FP", "First Payout"), ("LP", "Last Payout"))
-#     STATUS_CHOICES = (("PN", "Pending"), ("PD", "Paid"))
-#
-#     sale = models.ForeignKey(Sale, on_delete=models.CASCADE)
-#     payout_type = models.CharField(max_length=2, choices=PAYOUT_TYPE_CHOCIES)
-#     status = models.CharField(max_length=2, default="PN", choices=STATUS_CHOICES)
-#     amount = models.PositiveIntegerField()
-#
-#     month = models.PositiveIntegerField(choices=MONTH_CHOICES, validators=[MinValueValidator(limit_value=1), MaxValueValidator(limit_value=12)])
-#     year = models.PositiveIntegerField(validators=[MinValueValidator(limit_value=1990), MaxValueValidator(2050)])
-#
-#     def __str__(self):
-#         return "{} - {} - {} - {} - {}".format(self.sale.agent.get_short_name, self.sale.sale_id, self.get_payout_type_display(), self.amount, self.get_status_display())
+post_save.connect(create_payouts, sender=Sale)

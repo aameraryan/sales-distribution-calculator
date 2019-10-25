@@ -1,0 +1,49 @@
+{% extends "portal/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Update Profile{% endblock %}
+
+
+{% block content %}
+<br><br><br><br><br>
+    <div class="col-lg-6 m-auto">
+        <div class="card">
+            <div class="card-header warm-flame-gradient">
+                <div class="font-weight-bold text-white p-3 text-center">
+                    <i class="fa fa-user text-white fa-lg m-auto" style="font-size: 50px"></i>
+                    <hr>
+                    <h4 class="text-white font-weight-bold">Update Profile</h4>
+                </div>
+            </div>
+
+            <div class="card-body p-4">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            {{ form.first_name|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-lg-6">
+                            {{ form.last_name|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            {{ form.phone|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-lg-6">
+                            {{ form.photo|as_crispy_field }}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="col-lg-6 m-auto">
+                        <button class="btn young-passion-gradient float-right font-weight-bold text-white btn-block" type="submit">Update</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

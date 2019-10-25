@@ -12,7 +12,7 @@ urlpatterns = [
     url(r'^accounts/', include('accounts.urls', namespace='accounts')),
     url(r'^sales/', include('sales.urls', namespace='sales')),
     url(r'^tickets/', include('tickets.urls', namespace='tickets')),
-
+    url(r'^payouts/', include('payouts.urls', namespace='payouts')),
 ]
 
 if settings.DEBUG:

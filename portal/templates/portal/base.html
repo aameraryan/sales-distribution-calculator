@@ -42,9 +42,17 @@
     <script type="text/javascript" src="{% static "js/mdb.min.js" %}"></script>
     <script type="text/javascript" src="{% static "js/main.js" %}"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $("#avatar-image").on("error", function () {
+            $(this).attr("src", "{% static "img/default_avatar.png" %}")
+        });
 
+        $(function () {
+        })
+    </script>
     <script>
         $("#id_sale_date").datepicker();
+
     </script>
     {% block custom_script %}
     {% endblock %}
