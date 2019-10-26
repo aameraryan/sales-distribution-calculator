@@ -74,9 +74,10 @@
     <script type="text/javascript" src="{% static "js/addons/datatables.min.js" %}"></script>
     <script src="{% static "js/addons/datatables-select.min.js" %}" rel="stylesheet"></script>
     <script>
+        $("#payouts_filter_btn").val("pending");
+
         $("#payouts_filter_btn").on("change", function () {
             let value = $(this).val();
-            alert(value);
             if (value === "pending") {
                 $(".pending").show();
                 $(".paid").hide();

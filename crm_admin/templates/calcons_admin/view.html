@@ -12,6 +12,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-6">
+                        <div class="">
                         <div style="box-shadow: none" class="border card">
                             <div class="card-header font-weight-bold text-white bg-warning">
                                 <h5>1 - Bonuses</h5>
@@ -45,44 +46,44 @@
                                 </table>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div style="box-shadow: none" class="border card">
-                            <div class="card-header bg-info font-weight-bold text-white">
-                                <h5>2 - Car Dealer Bonuses</h5>
-                            </div>
-                            <div class="card-body">
-                                <table class="table table-striped">
-                                    <thead>
-                                        <th>No</th>
-                                        <th>Car Dealer Amount</th>
-                                        <th>Bonus Amount</th>
-                                        <th>Status</th>
-                                    </thead>
-                                    <tbody>
-                                        {% if cd_bonuses %}
-                                            {% for cd_bonus in cd_bonuses %}
-                                                <tr>
-                                                    <td>{{ forloop.counter }}</td>
-                                                    <td>{{ cd_bonus.car_dealer_amount }}</td>
-                                                    <td>{{ cd_bonus.bonus_amount }}</td>
-                                                    <td>
-                                                        <i class="fa {% if cd_bonus.is_active %} fa-check text-success{% else %}text-danger fa-times{% endif %}"></i>
-                                                    </td>
-                                                </tr>
-                                            {% endfor %}
-                                        {% else %}
-                                            <span class="font-weight-bold text-muted">No Data Found</span>
-                                        {% endif %}
-                                    </tbody>
-                                </table>
+                        </div>
+                        <br><hr>
+                        <div class="">
+                            <div style="box-shadow: none" class="border card">
+                                <div class="card-header bg-info font-weight-bold text-white">
+                                    <h5>2 - Car Dealer Bonuses</h5>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <th>No</th>
+                                            <th>Car Dealer Amount</th>
+                                            <th>Bonus Amount</th>
+                                            <th>Status</th>
+                                        </thead>
+                                        <tbody>
+                                            {% if cd_bonuses %}
+                                                {% for cd_bonus in cd_bonuses %}
+                                                    <tr>
+                                                        <td>{{ forloop.counter }}</td>
+                                                        <td>{{ cd_bonus.car_dealer_amount }}</td>
+                                                        <td>{{ cd_bonus.bonus_amount }}</td>
+                                                        <td>
+                                                            <i class="fa {% if cd_bonus.is_active %} fa-check text-success{% else %}text-danger fa-times{% endif %}"></i>
+                                                        </td>
+                                                    </tr>
+                                                {% endfor %}
+                                            {% else %}
+                                                <span class="font-weight-bold text-muted">No Data Found</span>
+                                            {% endif %}
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-lg-6">
+                        <br><hr>
+
+                        <div class="">
                         <div style="box-shadow: none" class="border card">
                             <div class="card-header bg-success font-weight-bold text-white">
                                 <h5>3 - Durations</h5>
@@ -116,6 +117,7 @@
                                 </table>
                             </div>
                         </div>
+                    </div>
                     </div>
                     <div class="col-lg-6">
                         <div style="box-shadow: none" class="border card">
@@ -151,6 +153,9 @@
                         </div>
                     </div>
                 </div>
+{#                <hr>#}
+{#                <div class="row">#}
+{#                </div>#}
                 <hr>
             </div>
         </div>

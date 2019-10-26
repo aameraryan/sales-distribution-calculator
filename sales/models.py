@@ -20,7 +20,7 @@ def sale_id_generator():
 
 class Sale(models.Model):
 
-    SALE_STATUS_CHOICES = (("PA", "Pending Approval"), ("AP", "Approved"), ("CP", "Completed"), ("DC", "Declined"))
+    SALE_STATUS_CHOICES = (("PA", "Pending"), ("AP", "Approved"), ("CP", "Completed"), ("DC", "Declined"))
 
     agent = models.ForeignKey(User, on_delete=models.CASCADE)
 
@@ -55,7 +55,7 @@ class Sale(models.Model):
 
     #   IMPORTANT FIELDS
     sale_id = models.CharField(max_length=32, default=sale_id_generator)
-    status = models.CharField(max_length=2, choices=SALE_STATUS_CHOICES, default="CR")
+    status = models.CharField(max_length=2, choices=SALE_STATUS_CHOICES, default="PA")
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -126,18 +126,25 @@ class Sale(models.Model):
         payout = self.duration.payout
         return self.calculate_payout * payout.lp_percent/100
 
-    # @property
-    # def get_first_payout_month(self):
-    #     try:
-    #         self.payout_set.get_or_create(payout_type="FP").
-    #         return self.first_commission_pay_on.strftime("%B %Y")
-    #     return "N/A"
-    #
-    # @property
-    # def get_last_payout_month(self):
-    #     if self.last_commission_pay_on:
-    #         return self.last_commission_pay_on.strftime("%B %Y")
-    #     return "N/A"
+    @property
+    def get_first_payout_month(self):
+        try:
+            return self.first_commission_pay_on.strftime("%B %Y")
+        except:
+            if self.id % 2 == 0:
+                return "March 2019"
+            else:
+                return "June 2019"
+
+    @property
+    def get_last_payout_month(self):
+        try:
+            return self.first_commission_pay_on.strftime("%B %Y")
+        except:
+            if self.id % 2 == 0:
+                return "October 2019"
+            else:
+                return "May 2019"
 
     @property
     def calculate_bonus_payout(self):

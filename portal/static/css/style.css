@@ -22,3 +22,7 @@
 .amt-secondary-color{
    color: #ff8177!important;
 }
+
+.nav-link{
+   font-weight: bold;
+}

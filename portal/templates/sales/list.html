@@ -29,43 +29,27 @@
                 </div>
             </div>
         <div class="card-body">
-            <div class="text-center">
-{#                <div class="btn-group" role="group" aria-label="Basic example">#}
-{#                  <button type="button" class="btn btn-primary" id="pending-sales-btn">Pending</button>#}
-{#                  <button type="button" class="btn btn-light" id="approved-sales-btn">Approved</button>#}
-{#                  <button type="button" class="btn btn-light" id="completed-sales-btn">Completed</button>#}
-{#                </div>#}
 
-                <div class="form-inline">
-                    <label for="sales_filter_btn" class="float-left">Sales Status : </label>
-                    <select id="sales_filter_btn" class="custom-select">
-                      <option value="pending">Pending</option>
-                      <option value="approved">Approved</option>
-                      <option value="completed">Completed</option>
-                    </select>
-                </div>
-                <hr>
-            </div>
-
-            <div class="pending_sales" id="pending_sales">
-                <table id="pending_table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <div class="sales table-responsive" id="sales">
+                <table id="sales-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
                   <thead>
                     <tr>
                       <th style="width: 50px"></th>
                       <th>No.</th>
-                      <th class="th-sm">Sale ID</th>
-                      <th class="th-sm">Product</th>
-                      <th class="th-sm">Contract Volume</th>
-                      <th class="th-sm">First Payout</th>
-                      <th class="th-sm">Last Payout</th>
-                      <th class="th-sm">First Payout Month</th>
-                      <th class="th-sm">Last Payout Month</th>
-                      <th class="th-sm">Total Commission</th>
-                      <th class="th-sm">Sale Date</th>
+                      <th>Sale ID</th>
+                      <th>Product</th>
+                      <th>Contract Volume</th>
+                      <th>First Payout</th>
+                      <th>Last Payout</th>
+                      <th>First Payout Month</th>
+                      <th>Last Payout Month</th>
+                      <th>Commission</th>
+                      <th>Sale Date</th>
+                      <th>Status</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    {% for sale in pending_sales %}
+                    <tbody>
+                    {% for sale in sales %}
                         <tr class="sale">
                             <td></td>
                             <td>{{ forloop.counter }}</td>
@@ -77,133 +61,35 @@
                             <td class="fp-month">{{ sale.get_first_payout_month|default:"N/A" }}</td>
                             <td class="lp-month">{{ sale.get_last_payout_month|default:"N/A" }}</td>
                             <td>{{ sale.total_payout }}</td>
-                            <td>{{ sale.sale_date }}</td>
+                            <td>{{ sale.sale_date}}</td>
+                            <td>{{ sale.get_status_display }}</td>
                         </tr>
                     {% endfor %}
                   </tbody>
                   <tfoot>
                     <tr>
-                        <td></td>
-                        <td>{{ sales.count }}</td>
-                        <td>Sales</td>
-                        <td>Product Name</td>
-                        <td>Contract Volume</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                  </tfoot>
-                </table>
-            </div >
-
-            <div class="approved_sales" id="approved_sales">
-                <table id="approved_table" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                  <thead>
-                    <tr>
-                      <th style="width: 50px"></th>
+                      <th></th>
                       <th>No.</th>
-                      <th class="th-sm">Sale ID</th>
-                      <th class="th-sm">Product</th>
-                      <th class="th-sm">Contract Volume</th>
-                      <th class="th-sm">First Payout</th>
-                      <th class="th-sm">Last Payout</th>
-                      <th class="th-sm">First Payout Month</th>
-                      <th class="th-sm">Last Payout Month</th>
-                      <th class="th-sm">Total Commission</th>
-                      <th class="th-sm">Sale Date</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {% for sale in approved_sales %}
-                        <tr class="sale">
-                            <td></td>
-                            <td>{{ forloop.counter }}</td>
-                            <td><a href="{{ sale.get_absolute_url }}">{{ sale.sale_id }}</a></td>
-                            <td>{{ sale.campaign_name }}</td>
-                            <td>{{ sale.contract_volume }}</td>
-                            <td>{{ sale.first_payout }}</td>
-                            <td>{{ sale.last_payout }}</td>
-                            <td class="fp-month">{{ sale.get_first_payout_month|default:"N/A" }}</td>
-                            <td class="lp-month">{{ sale.get_last_payout_month|default:"N/A" }}</td>
-                            <td>{{ sale.total_payout }}</td>
-                            <td>{{ sale.sale_date }}</td>
-                        </tr>
-                    {% endfor %}
-                  </tbody>
-                  <tfoot>
-                    <tr>
-                        <td></td>
-                        <td>{{ sales.count }}</td>
-                        <td>Sales</td>
-                        <td>Product Name</td>
-                        <td>Contract Volume</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                      <th>Sale ID</th>
+                      <th>Product</th>
+                      <th>Contract Volume</th>
+                      <th>First Payout</th>
+                      <th>Last Payout</th>
+                      <th>First Payout Month</th>
+                      <th>Last Payout Month</th>
+                      <th class="commission-total"></th>
+                      <th>Sale Date</th>
+                      <th>Status</th>
                     </tr>
                   </tfoot>
                 </table>
             </div>
-
-            <div class="completed_sales" id="completed_sales">
-                <table id="completed_table" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                  <thead>
-                    <tr>
-                      <th style="width: 50px"></th>
-                      <th>No.</th>
-                      <th class="th-sm">Sale ID</th>
-                      <th class="th-sm">Product</th>
-                      <th class="th-sm">Contract Volume</th>
-                      <th class="th-sm">First Payout</th>
-                      <th class="th-sm">Last Payout</th>
-                      <th class="th-sm">First Payout Month</th>
-                      <th class="th-sm">Last Payout Month</th>
-                      <th class="th-sm">Total Commission</th>
-                      <th class="th-sm">Sale Date</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {% for sale in completed_sales %}
-                        <tr class="sale">
-                            <td></td>
-                            <td>{{ forloop.counter }}</td>
-                            <td><a href="{{ sale.get_absolute_url }}">{{ sale.sale_id }}</a></td>
-                            <td>{{ sale.campaign_name }}</td>
-                            <td>{{ sale.contract_volume }}</td>
-                            <td>{{ sale.first_payout }}</td>
-                            <td>{{ sale.last_payout }}</td>
-                            <td class="fp-month">{{ sale.get_first_payout_month|default:"N/A" }}</td>
-                            <td class="lp-month">{{ sale.get_last_payout_month|default:"N/A" }}</td>
-                            <td>{{ sale.total_payout }}</td>
-                            <td>{{ sale.sale_date }}</td>
-                        </tr>
-                    {% endfor %}
-                  </tbody>
-                  <tfoot>
-                    <tr>
-                        <td></td>
-                        <td>{{ sales.count }}</td>
-                        <td>Sales</td>
-                        <td>Product Name</td>
-                        <td>Contract Volume</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                  </tfoot>
-                </table>
-            </div>
-
         </div>
+
+
+
+
+
 
 
         </div>
@@ -215,74 +101,50 @@
 {% block custom_script %}
     <script type="text/javascript" src="{% static "js/addons/datatables.min.js" %}"></script>
     <script src="{% static "js/addons/datatables-select.min.js" %}" rel="stylesheet"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.10.20/api/sum().js" rel="script"></script>
     <script>
+        $(document).ready(function() {
+            let datatable = $('#sales-table').DataTable( {
 
-        $("#sales_filter_btn").on("change", function () {
-           let value = $(this).val();
-           if (value === "pending"){
-               $("#pending_sales").show();
-               $("#approved_sales").hide();
-               $("#completed_sales").hide();
-           }
-           else if (value === "approved"){
-               $("#approved_sales").show();
-               $("#pending_sales").hide();
-               $("#completed_sales").hide();
-           }
-           else if (value === "completed"){
-               $("#completed_sales").show();
-               $("#approved_sales").hide();
-               $("#pending_sales").hide();
+                'pageLength': 2,
+                "scrollY": 500,
 
-           }
 
-        });
+                drawCallback: function () {
+                    var api = this.api();
 
-        $('#pending_table').dataTable({
-            "pageLength": 2,
-            "scrollY": "600px",
-            "paging": false,
-            columnDefs: [{
-            orderable: true,
-            className: 'select-checkbox',
-            targets: 0
-            }],
-            select: {
-            style: 'os',
-            selector: 'td:first-child'
-            }
-        });
-        $('#completed_table').dataTable({
-            "pageLength": 2,
-            "scrollY": "600px",
-            "paging": false,
-            columnDefs: [{
-            orderable: true,
-            className: 'select-checkbox',
-            targets: 0
-            }],
-            select: {
-            style: 'os',
-            selector: 'td:first-child'
-            }
-        });
-        $('#approved_table').dataTable({
-            "pageLength": 2,
-            "scrollY": "600px",
-            "paging": false,
-            columnDefs: [{
-            orderable: true,
-            className: 'select-checkbox',
-            targets: 0
-            }],
-            select: {
-            style: 'os',
-            selector: 'td:first-child'
-            }
-        });
+                    let foot = this.api().table().footer();
 
-        $("#approved_sales").hide();
-        $("#completed_sales").hide();
+                    $(foot).children().children(".commission-total").text(
+                      api.column(-3, {search: "applied"}).data().sum() + " / " + api.column(-3).data().sum()
+                    );
+                },
+
+                initComplete: function () {
+                    let i= 0;
+                    this.api().columns().every( function () {
+                        let allowed_indexes = [7,8, 11];
+                        let column = this;
+                        if (allowed_indexes.includes(i)){
+                            var select = $('<select><option value="">All</option></select>')
+                                .appendTo( $(column.footer()).empty() )
+                                .on( 'change', function () {
+                                    var val = $.fn.dataTable.util.escapeRegex(
+                                        $(this).val()
+                                    );
+                                    column
+                                        .search( val ? '^'+val+'$' : '', true, false )
+                                        .draw();
+                                } );
+                            column.data().unique().sort().each( function ( d, j ) {
+                                select.append( '<option value="'+d+'">'+d+'</option>' )
+                            } );
+                        }
+                        i++;
+                    } );
+                },
+            } );
+        } );
 
     </script>
 {% endblock %}
