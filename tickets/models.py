@@ -41,3 +41,7 @@ class Ticket(models.Model):
     @property
     def get_admin_absolute_url(self):
         return reverse_lazy("crm_admin:tickets_admin_detail", kwargs={"id": self.id})
+
+    @property
+    def get_admin_update_url(self):
+        return reverse_lazy("crm_admin:tickets_admin_update", kwargs={"id": self.id})

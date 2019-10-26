@@ -22,15 +22,15 @@ class TicketDetailView(LoginRequiredMixin, DetailView):
     slug_url_kwarg = "id"
 
 
-# class SaleUpdateView(LoginRequiredMixin, UpdateView):
-#
-#     model = Sale
-#     template_name = "sales_admin/update.html"
-#     fields = ("first_commission_paid", "last_commission_paid", "first_commission_pay_on", "last_commission_pay_on", "finance_comment", "status")
-#     slug_field = "id"
-#     slug_url_kwarg = "id"
-#     success_url = reverse_lazy("crm_admin:sales_admin_list")
-#
-#     def form_valid(self, form):
-#         messages.success(self.request, "Sale Updated Successfully")
-#         return super().form_valid(form)
+class TicketUpdateView(LoginRequiredMixin, UpdateView):
+
+    model = Ticket
+    template_name = "tickets_admin/update.html"
+    fields = ("description", )
+    slug_field = "id"
+    slug_url_kwarg = "id"
+    success_url = reverse_lazy("crm_admin:tickets_admin_list")
+
+    def form_valid(self, form):
+        messages.success(self.request, "Ticket Updated Successfully")
+        return super().form_valid(form)

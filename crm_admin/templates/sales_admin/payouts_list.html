@@ -1,8 +1,8 @@
-{% extends "portal/base.html" %}
+{% extends "crm_admin/base.html" %}
 {% load crispy_forms_tags %}
 {% load static %}
 
-{% block title %}My Payouts{% endblock %}
+{% block title %}All Payouts{% endblock %}
 
 {% block custom_links %}
     <link href="{% static "css/addons/datatables.min.css" %}" rel="stylesheet">
@@ -18,12 +18,10 @@
 {% endblock %}
 
 {% block content %}
-    <div class="col-lg-11" style="margin: auto;padding: 20px">
+    <div class="" style="margin: auto">
         <div class="card">
-            <div class="card-header warm-flame-gradient text-white font-weight-bold text-center">
-                <i class="fa fa-dollar-sign amt-heading-icon"></i>
-                <hr>
-                <h3 class="font-weight-bold white-text mt-2">My Payouts</h3>
+            <div class="card-header young-passion-gradient text-white font-weight-bold">
+                <h3 class="font-weight-bold white-text mt-2"><i class="fa fa-dollar-sign"></i> All Payouts</h3>
             </div>
             <div class="card-body">
 
@@ -31,6 +29,7 @@
                     <table id="payouts_table" class="table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                       <thead>
                         <tr>
+                          <th>Agent</th>
                           <th>Sale</th>
                           <th>Payout Type</th>
                           <th>Amount</th>
@@ -43,6 +42,7 @@
                         {% for sale in sales %}
                             {% if sale.first_payout %}
                                 <tr>
+                                    <td>{{ sale.agent.get_short_name }}</td>
                                     <td>
                                         <a href="{{ sale.get_absolute_url }}">{{ sale.sale_id }}</a>
                                     </td>
@@ -59,6 +59,7 @@
                             {% endif %}
                             {% if sale.last_payout %}
                                 <tr>
+                                    <td>Agent</td>
                                     <td>
                                         <a href="{{ sale.get_absolute_url }}">{{ sale.sale_id }}</a>
                                     </td>
@@ -77,6 +78,7 @@
                       </tbody>
                       <tfoot>
                         <tr>
+                          <th>Agent</th>
                           <th>Sale</th>
                           <th>Payout Type</th>
                           <th class="payout-total">Amount</th>
@@ -113,14 +115,14 @@
                     let foot = this.api().table().footer();
 
                     $(foot).children().children(".payout-total").text(
-                      api.column(2, {search: "applied"}).data().sum() + " / " + api.column(2).data().sum()
+                      api.column(3, {search: "applied"}).data().sum() + " / " + api.column(3).data().sum()
                     );
                 },
 
                 initComplete: function () {
                     let i= 0;
                     this.api().columns().every( function () {
-                        let allowed_indexes = [1, 3, 4];
+                        let allowed_indexes = [0, 2, 4, 5];
                         let column = this;
                         if (allowed_indexes.includes(i)){
                             var select = $('<select class="form-control"><option value="">All</option></select>')

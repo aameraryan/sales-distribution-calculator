@@ -101,12 +101,13 @@
 {% block custom_script %}
     <script type="text/javascript" src="{% static "js/addons/datatables.min.js" %}"></script>
     <script src="{% static "js/addons/datatables-select.min.js" %}" rel="stylesheet"></script>
-    <script src="https://cdn.datatables.net/plug-ins/1.10.20/api/sum().js" rel="script"></script>
+        <script src="https://cdn.datatables.net/plug-ins/1.10.20/api/sum().js" rel="script"></script>
+
     <script>
         $(document).ready(function() {
             let datatable = $('#sales-table').DataTable( {
 
-                'pageLength': 2,
+                'pageLength': 25,
                 "scrollY": 500,
 
 
@@ -126,7 +127,7 @@
                         let allowed_indexes = [7,8, 11];
                         let column = this;
                         if (allowed_indexes.includes(i)){
-                            var select = $('<select><option value="">All</option></select>')
+                            var select = $('<select class="form-control"><option value="">All</option></select>')
                                 .appendTo( $(column.footer()).empty() )
                                 .on( 'change', function () {
                                     var val = $.fn.dataTable.util.escapeRegex(

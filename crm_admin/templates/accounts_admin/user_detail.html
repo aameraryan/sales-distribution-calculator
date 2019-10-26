@@ -1,0 +1,58 @@
+{% extends "crm_admin/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}User Details {{ user.user_id }}{% endblock %}
+
+{% block content %}
+    <div>
+        <div class="card clearfix">
+            <div class="card-header warm-flame-gradient clearfix">
+                <div class="page_heading float-left">
+                <h3 class="white-text font-weight-bold m-2">User Details : {{ user.user_id }}</h3>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="detail_table">
+                    <table class="table detail_table table-hover">
+                        <thead class="bg-light">
+                            <th colspan="4">User Details</th>
+                        </thead>
+                        <tr>
+                            <th>First Name</th>
+                            <td>{{ user.first_name }}</td>
+                            <th>Last Name</th>
+                            <td>{{ user.last_name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td>{{ user.email }}</td>
+                            <th>Phone</th>
+                            <td>{{ user.phone }}</td>
+                        </tr>
+                        <tr>
+                            <th>User Type</th>
+                            <td>{{ user.get_account_type_display }}</td>
+                            <th>Status</th>
+                            <td>{% if user.is_active %}Active{% else %}Inactive{% endif %}</td>
+                        </tr>
+                        <tr>
+                            <th>Created On</th>
+                            <td>{{ user.date_joined }}</td>
+                            <th>Last Login</th>
+                            <td>{{ user.last_login }}</td>
+                        </tr>
+                        {% if user.account_type == "AG" %}
+                            <tr>
+                                <th>Total Sales</th>
+                                <td>{{ user.sale_set.all.count  }}</td>
+                                <th>Total Paid Amount</th>
+                                <td>-</td>
+                            </tr>
+                        {% endif %}
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

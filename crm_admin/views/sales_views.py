@@ -1,6 +1,6 @@
 from sales.models import Sale
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView, DetailView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, UpdateView, DeleteView, TemplateView
 from django.http import Http404
 from django.contrib import messages
 from django.urls import reverse_lazy
@@ -34,3 +34,14 @@ class SaleUpdateView(LoginRequiredMixin, UpdateView):
     def form_valid(self, form):
         messages.success(self.request, "Sale Updated Successfully")
         return super().form_valid(form)
+
+
+class PayoutListView(LoginRequiredMixin, TemplateView):
+
+    template_name = "sales_admin/payouts_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        sales = Sale.objects.all()
+        context['sales'] = sales
+        return context

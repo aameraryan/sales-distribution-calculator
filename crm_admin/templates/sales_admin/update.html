@@ -124,6 +124,10 @@
         $("#sale_details_toggle").on("click", function () {
             $("#sale_details").toggle();
             $(this).toggleClass("fa-eye fa-eye-slash");
-        })
+        });
+
+        $("#id_first_commission_pay_on").datepicker();
+        $("#id_last_commission_pay_on").datepicker();
+
     </script>
 {% endblock %}

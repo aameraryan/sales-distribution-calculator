@@ -1,4 +1,6 @@
 {% extends "portal/base.html" %}
+
+
 {% load crispy_forms_tags %}
 
 {% block title %}Update Profile{% endblock %}
@@ -19,6 +21,15 @@
             <div class="card-body p-4">
                 <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
+
+                    <div class="row">
+                        <div class="form-group col-lg-12">
+                            <label>
+                                Email
+                            </label>
+                            <input type="text" value="{{ form.instance.email }}" class="disabled form-control" disabled="disabled">
+                        </div>
+                    </div>
 
                     <div class="row">
                         <div class="form-group col-lg-6">

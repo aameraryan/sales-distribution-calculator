@@ -7,16 +7,16 @@ from django.urls import reverse_lazy
 from django.contrib import messages
 
 
-class PayoutListView(LoginRequiredMixin, ListView):
+class PayoutListView(LoginRequiredMixin, TemplateView):
 
-    model = Payout
-    context_object_name = "payouts"
     template_name = "payouts/list.html"
-    ordering = "-id"
 
-    def get_queryset(self):
-        qs = super().get_queryset()
-        return qs.filter(sale__agent=self.request.user)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        sales = self.request.user.sale_set.all()
+        context['sales'] = sales
+        return context
+
     #
     # def get_context_data(self, *, object_list=None, **kwargs):
     #     context = super().get_context_data()

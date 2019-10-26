@@ -17,21 +17,21 @@ class UserAddView(LoginRequiredMixin, CreateView):
 
     model = User
     template_name = "accounts_admin/user_add.html"
-    fields = ("email", "phone", "first_name", "last_name", "account_type", "is_active", "password")
+    fields = ("email", "phone", "first_name", "last_name", "account_type", "is_active")
     success_url = reverse_lazy("crm_admin:ac_admin_user_list")
 
     def form_valid(self, form):
         messages.success(self.request, "User Created Successfully")
         return super().form_valid(form)
 
-#
-# class TicketDetailView(LoginRequiredMixin, DetailView):
-#
-#     model = Ticket
-#     context_object_name = "ticket"
-#     template_name = "tickets_admin/detail.html"
-#     slug_field = "id"
-#     slug_url_kwarg = "id"
+
+class UserDetailView(LoginRequiredMixin, DetailView):
+
+    model = User
+    context_object_name = "user"
+    template_name = "accounts_admin/user_detail.html"
+    slug_field = "id"
+    slug_url_kwarg = "id"
 
 
 # class SaleUpdateView(LoginRequiredMixin, UpdateView):

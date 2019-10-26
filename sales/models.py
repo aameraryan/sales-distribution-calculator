@@ -39,6 +39,10 @@ class Sale(models.Model):
 
     #   FINANCE INPUTS
     finance_comment = models.TextField(blank=True)
+    first_commission_paid = models.BooleanField(default=False)
+    last_commission_paid = models.BooleanField(default=False)
+    first_commission_pay_on = models.DateField(blank=True, null=True)
+    last_commission_pay_on = models.DateField(blank=True, null=True)
 
     #   CALCULATION FIELDS
     commission_applicable = models.FloatField(blank=True, null=True)
@@ -128,23 +132,17 @@ class Sale(models.Model):
 
     @property
     def get_first_payout_month(self):
-        try:
+        if self.first_commission_pay_on:
             return self.first_commission_pay_on.strftime("%B %Y")
-        except:
-            if self.id % 2 == 0:
-                return "March 2019"
-            else:
-                return "June 2019"
+        else:
+            return "N/A"
 
     @property
     def get_last_payout_month(self):
-        try:
-            return self.first_commission_pay_on.strftime("%B %Y")
-        except:
-            if self.id % 2 == 0:
-                return "October 2019"
-            else:
-                return "May 2019"
+        if self.last_commission_pay_on:
+            return self.last_commission_pay_on.strftime("%B %Y")
+        else:
+            return "N/A"
 
     @property
     def calculate_bonus_payout(self):

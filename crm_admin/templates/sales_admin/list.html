@@ -31,22 +31,22 @@
         <div class="card-body">
 
             <div class="table-responsive-lg">
-                <table id="dt-basic-checkbox" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <table id="sales-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                 <tr>
                   <th style="width: 50px!important;"></th>
-                  <th class="th-sm">Sale ID</th>
-                  <th class="th-sm">Agent</th>
-                  <th class="th-sm">Product</th>
-                  <th class="th-sm">Contract Volume</th>
-                  <th class="th-sm">First Payout</th>
-                  <th class="th-sm">Last Payout</th>
-                  <th class="th-sm">First Payout Month</th>
-                  <th class="th-sm">Last Payout Month</th>
-                  <th class="th-sm">Commission</th>
-                  <th class="th-sm">Sale Date</th>
-                  <th class="th-sm">Status</th>
-                  <th class="th-sm">Actions</th>
+                  <th>Sale ID</th>
+                  <th>Agent</th>
+                  <th>Product</th>
+                  <th>Contract Volume</th>
+                  <th>First Payout</th>
+                  <th>Last Payout</th>
+                  <th>First Payout Month</th>
+                  <th>Last Payout Month</th>
+                  <th class="commission-total">Commission</th>
+                  <th>Sale Date</th>
+                  <th>Status</th>
+                  <th>Actions</th>
                 </tr>
                   </thead>
                     <tbody>
@@ -71,6 +71,23 @@
                         </tr>
                     {% endfor %}
                   </tbody>
+                                    <tfoot>
+                <tr>
+                  <th style="width: 50px!important;"></th>
+                  <th>Sale ID</th>
+                  <th>Agent</th>
+                  <th>Product</th>
+                  <th>Contract Volume</th>
+                  <th>First Payout</th>
+                  <th>Last Payout</th>
+                  <th>First Payout Month</th>
+                  <th>Last Payout Month</th>
+                  <th class="commission-total">Commission</th>
+                  <th>Sale Date</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+                  </tfoot>
                 </table>
             </div>
 
@@ -85,16 +102,51 @@
 {% block custom_script %}
     <script type="text/javascript" src="{% static "js/addons/datatables.min.js" %}"></script>
     <script src="{% static "js/addons/datatables-select.min.js" %}" rel="stylesheet"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.10.20/api/sum().js" rel="script"></script>
     <script>
+        $(document).ready(function() {
+            let datatable = $('#sales-table').DataTable( {
 
-        $('#dt-basic-checkbox').dataTable({
+                'pageLength': 25,
+                "scrollY": 500,
 
-        columnDefs: [{
-        orderable: true,
-        className: 'select-checkbox',
-        targets: 0,
-        }]
-        })
+
+                drawCallback: function () {
+                    var api = this.api();
+
+                    let foot = this.api().table().footer();
+
+                    $(foot).children().children(".commission-total").text(
+                      api.column(-4, {search: "applied"}).data().sum() + " / " + api.column(-4).data().sum()
+                    );
+                },
+
+                initComplete: function () {
+                    let i= 0;
+                    this.api().columns().every( function () {
+                        let allowed_indexes = [2, 7, 8, 11];
+                        let column = this;
+                        if (allowed_indexes.includes(i)){
+                            var select = $('<select class="form-control"><option value="">All</option></select>')
+                                .appendTo( $(column.footer()).empty() )
+                                .on( 'change', function () {
+                                    var val = $.fn.dataTable.util.escapeRegex(
+                                        $(this).val()
+                                    );
+                                    column
+                                        .search( val ? '^'+val+'$' : '', true, false )
+                                        .draw();
+                                } );
+                            column.data().unique().sort().each( function ( d, j ) {
+                                select.append( '<option value="'+d+'">'+d+'</option>' )
+                            } );
+                        }
+                        i++;
+                    } );
+                },
+            } );
+        } );
 
     </script>
+
 {% endblock %}
